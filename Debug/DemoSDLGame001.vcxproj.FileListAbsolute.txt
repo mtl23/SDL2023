@@ -1,0 +1,2 @@
+C:\DemoSDLGame001\Debug\DemoSDLGame001.exe
+C:\DemoSDLGame001\Debug\DemoSDLGame001.pdb
