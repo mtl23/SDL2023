@@ -1,4 +1,2 @@
 ﻿  MainGame.cpp
-C:\DemoSDLGame001\MainGame.cpp(30,3): error C2664: 'void _slog(char *,int,char *,...)': cannot convert argument 1 from 'const char [31]' to 'char *'
-C:\DemoSDLGame001\MainGame.cpp(30,3): message : Conversion from string literal loses const qualifier (see /Zc:strictStrings)
-C:\DemoSDLGame001\simple_logger.h(36,6): message : see declaration of '_slog'
+  DemoSDLGame001.vcxproj -> C:\DemoSDLGame001\x64\Debug\DemoSDLGame001.exe
