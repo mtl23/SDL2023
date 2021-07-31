@@ -1,2 +1,6 @@
 ﻿  MainGame.cpp
+  sprite.cpp
+C:\DemoSDLGame001\sprite.cpp(146,19): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\DemoSDLGame001\sprite.cpp(147,19): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
   DemoSDLGame001.vcxproj -> C:\DemoSDLGame001\x64\Debug\DemoSDLGame001.exe

@@ -16,16 +16,18 @@ Sprite_M* spriteList = NULL;
 int numSprites = 0;
 int spriteMax = 100;
 
-void InitSpriteSystem()
+bool InitSpriteSystem()
 {
 	spriteList = (Sprite_M*)malloc(sizeof(Sprite_M) * (spriteMax));
 
 	if (spriteList == NULL)
 	{
 		//slog("failed to initialize sprite system. STILL NULL");
+		return false;
 	}
 	memset(spriteList, 0, sizeof(Sprite_M) * (spriteMax));
 	//slog("sprite system is go");
+	return true;
 }
 
 

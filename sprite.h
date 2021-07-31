@@ -50,7 +50,7 @@ typedef struct
 *
 *@brief creates the sptite system, should be used once at game start
 */
-void InitSpriteSystem();
+bool InitSpriteSystem();
 
 /**
 *

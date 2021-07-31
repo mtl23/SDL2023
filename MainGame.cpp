@@ -4,9 +4,9 @@
 #include <stdio.h>
 #include <string>
 #include <cmath>
-
-
-
+#include "sprite.h"
+#include "SDL_ttf.h"
+#include "SDL_mixer.h" 
 
 //Screen dimension constants
 const int SCREEN_WIDTH = 512;
@@ -49,6 +49,31 @@ bool init()
 	}
 	else
 	{
+			
+		// Initialize Sprite system	
+		if(!InitSpriteSystem() )
+		{
+			printf("Falied to load sprite system");
+			success = false;
+		}
+
+
+		// Initialize fonts
+		if (TTF_Init() == -1)
+		{
+			printf("Falied to SDL ttf font system");
+			return false;
+		}
+		// Initialize sounds
+		if (Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 4096) == -1)
+		{
+			printf("Falied to load SDL_mixer audio system");
+			return false;
+		}
+		
+	// Initialize entity system
+	// Initialize graphics
+
 		//Create window
 		gWindow = SDL_CreateWindow("SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 		if (gWindow == NULL)
@@ -69,7 +94,7 @@ bool init()
 }
 
 
-bool loadMedia()
+bool loadMedia()//hard coded for early use
 {
 	//Loading success flag
 	bool success = true;
@@ -117,13 +142,14 @@ int main(int argc, char* args[])
 		}
 		else
 		{
+
 			//Apply the image
-			SDL_BlitSurface(gHelloWorld, NULL, gScreenSurface, NULL);
+			//SDL_BlitSurface(gHelloWorld, NULL, gScreenSurface, NULL);
 
 			//Update the surface
-			SDL_UpdateWindowSurface(gWindow);
+			//SDL_UpdateWindowSurface(gWindow);
 			//Wait two seconds
-			SDL_Delay(2000);
+			//SDL_Delay(2000);
 		}
 	}
 
