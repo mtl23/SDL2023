@@ -149,12 +149,14 @@
   <ItemGroup>
     <ClCompile Include="graphics.cpp" />
     <ClCompile Include="MainGame.cpp" />
+    <ClCompile Include="map.cpp" />
     <ClCompile Include="simple_logger.c" />
     <ClCompile Include="sprite.cpp" />
     <ClCompile Include="vector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="background.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="graphics.h" />
     <ClInclude Include="map.h" />
     <ClInclude Include="simple_logger.h" />

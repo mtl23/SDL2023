@@ -27,7 +27,7 @@ typedef struct
 /**
 *
 *@brief allocates a space in the master Sprite-List for a sprite of a given filename (PNG)? or BMP?? Also gives the BGobject a specific name
-*@param filename: the filename of the background associated with the entity
+*@param filename: the name of the background associated with the entity
 *@param SizeX: the final width of the background when it's drawn
 *@param SizeY: the final height of the background when it's drawn
 *@return Background_M: returns a Background_M object so that it can be saved for later. This is necessary to use backgroundDraw()

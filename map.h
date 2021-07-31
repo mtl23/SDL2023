@@ -27,7 +27,14 @@ typedef struct
 	Background_M* bg_sky;
 }Map_M;
 
-
+/**
+*
+*@brief allocates a space in the master Entity-List for a map of a given filename (PNG)? or BMP?? Also gives the Map a specific name
+*@param filename: the name of the map associated with the entity
+*@param SizeX: the final width of the background when it's drawn
+*@param SizeY: the final height of the background when it's drawn
+*@return Map_M: returns a Map_M object the primary Entity.
+*/
 Map_M mapLoad(char* filename, int SizeX, int SizeY);
 void mapFree(Map_M* bg);
 void mapDraw(Map_M* bg, SDL_Renderer* renderer, Vector2D destPosition, Vector2D imgPosition); ///technically the ,mapo it entity #1 so consider not using this in later implementastions
