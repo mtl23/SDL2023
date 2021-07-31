@@ -1,6 +1,12 @@
-﻿  MainGame.cpp
+﻿  graphics.cpp
+  MainGame.cpp
   sprite.cpp
 C:\DemoSDLGame001\sprite.cpp(146,19): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\DemoSDLGame001\sprite.cpp(147,19): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  vector.cpp
+C:\DemoSDLGame001\vector.cpp(33,13): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\DemoSDLGame001\vector.cpp(37,13): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
   Generating Code...
+  simple_logger.c
+C:\DemoSDLGame001\simple_logger.c(26,24): warning C4113: 'void (__cdecl *)()' differs in parameter lists from 'void (__cdecl *)(void)'
   DemoSDLGame001.vcxproj -> C:\DemoSDLGame001\x64\Debug\DemoSDLGame001.exe

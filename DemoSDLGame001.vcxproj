@@ -81,9 +81,9 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\vclib2.0\SDL2-2.0.12\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\vclib2.0\SDL2-2.0.12\include;C:\vclib2.0\Jansson\include;C:\vclib2.0\Chipmunk-7.0.2\include\chipmunk;C:\vclib2.0\glib-2.28\include\glib-2.0;C:\vclib2.0\glib-2.28\lib\glib-2.0\include;$(IncludePath)</IncludePath>
     <ReferencePath>C:\Users\19739\Desktop\M0de7Projectv0.102\SDL2-2.0.4\lib\x64;$(ReferencePath)</ReferencePath>
-    <LibraryPath>C:\vclib2.0\SDL2-2.0.12\lib\x64;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\vclib2.0\Jansson\lib\Debug;C:\vclib2.0\SDL2-2.0.12\lib\x64;C:\vclib2.0\Chipmunk-7.0.2\lib\x86;C:\vclib2.0\glib-2.28\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -127,7 +127,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;chipmunk.lib;jansson_d.lib;glib-2.0.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
