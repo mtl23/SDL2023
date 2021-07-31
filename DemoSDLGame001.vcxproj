@@ -154,7 +154,9 @@
     <ClCompile Include="vector.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="background.h" />
     <ClInclude Include="graphics.h" />
+    <ClInclude Include="map.h" />
     <ClInclude Include="simple_logger.h" />
     <ClInclude Include="sprite.h" />
     <ClInclude Include="vector.h" />

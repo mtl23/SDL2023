@@ -70,7 +70,9 @@ bool init()
 			printf("Falied to load SDL_mixer audio system");
 			return false;
 		}
-		
+	
+		//load glib
+		// chipmunk
 	// Initialize entity system
 	// Initialize graphics
 
