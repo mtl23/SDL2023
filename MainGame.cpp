@@ -83,8 +83,8 @@ int main(int argc, char* args[])
 	//Event handler
 	SDL_Event e;
 	// the map entity
-	//Map_S* M0deS3v3n = mapLoad("PNG/m7_map.png", 512, 512, "PNG/bg2.png",2048,150);
-	Sprite_S* map = spriteLoad("SRC/PNG/m7_map.png", 512, 512);
+	Map_S* M0deS3v3n = mapLoad("PNG/m7_map.png", 512, 512, "PNG/bg2.png",2048,150);
+	//Sprite_S* map = spriteLoad("SRC/PNG/m7_map.png", 512, 512);
 	//the player entity
 
 	Vector2D Init_map_position;
@@ -95,7 +95,7 @@ int main(int argc, char* args[])
 	do
 	{
 	SDL_RenderClear(gRenderer);
-	spriteDraw(map, gRenderer, 0, Init_map_position);// TODO GET THIS WORKING!!! REFACTOR TO A MAP
+	spriteDraw(M0deS3v3n->MAP->sprite, gRenderer, 0, Init_map_position);// TODO GET THIS WORKING!!! REFACTOR TO A MAP
 
 	//spriteDraw(map, gRenderer, 0, Init_map_position);// TODO GET THIS WORKING!!! REFACTOR TO A MAP
 
