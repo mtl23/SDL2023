@@ -13,8 +13,14 @@ Background_M* backgroundLoad(const char* filename, int SizeX, int SizeY)
 {
 	
 	
-	struct Background_M temp{};
-	strncpy_s(temp.bg_name, filename, 20);
+	Background_M temp;
+	//temp = (Background_M*)malloc(sizeof(Background_M));
+	//memset(temp, 0, sizeof(Background_M));
+
+
+	//temp.sky = (Sprite_S*)malloc(sizeof(Sprite_S));
+	//memset(temp->sky, 0, sizeof(Sprite_S));
+
 	temp.sky = spriteLoad(filename,SizeX,SizeY);
 
 	if (temp.sky ==NULL)
@@ -23,7 +29,7 @@ Background_M* backgroundLoad(const char* filename, int SizeX, int SizeY)
 		slog("Failed to load sprite for a Map's background");
 		return NULL;
 	}
-
+	strncpy_s(temp.bg_name, filename, 20);
 	return &temp;
 }
 

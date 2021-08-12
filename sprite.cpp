@@ -14,7 +14,7 @@ extern SDL_Renderer* gRenderer;
 
 Sprite_S* spriteList = NULL;
 int numSprites = 0;
-int spriteMax = 100;
+int spriteMax = 5;
 
 bool InitSpriteSystem()
 {
