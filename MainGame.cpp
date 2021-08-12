@@ -138,7 +138,7 @@ int main(int argc, char* args[])
 		SDL_RenderClear(gRenderer);
 		//spriteDraw(&map3, gRenderer, 0, Init_map_position);// TODO GET THIS WORKING!!! REFACTOR TO A MAP  -works with an entity or  sprite created
 		//spriteDraw(map2.sprite, gRenderer, 0, Init_map_position);// TODO GET THIS WORKING!!! REFACTOR TO A MAP  -works with an entity or  sprite created
-		//spriteDraw(M0deS3v3n.bg_sky.sky, gRenderer, 0, Init_map_position);// TODO GET THIS WORKING!!! REFACTOR TO A MAP  -works with an entity or  sprite created
+		spriteDraw(M0deS3v3n.bg_sky.sky, gRenderer, 0, M0deS3v3n.Init_bg_position);// TODO GET THIS WORKING!!! REFACTOR TO A MAP  -works with an entity or  sprite created
 		spriteDraw(M0deS3v3n.MAP->sprite, gRenderer, 0, M0deS3v3n.Init_map_position);// TODO GET THIS WORKING!!! REFACTOR TO A MAP  -works with an entity or  sprite created
 		NextFrame();
 		//M0deS3v3n->MAP->sprite

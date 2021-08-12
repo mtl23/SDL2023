@@ -15,7 +15,7 @@ Map_S mapNew(const char* filename, int SizeX, int SizeY, const char* bgfilename,
   
 	Entity_S* temp;
 	temp = EntityNew();
-	Sprite_S temp_spr = *spriteLoad(filename, 100,100 ); //change numbers
+	Sprite_S* temp_spr = spriteLoad(filename, 512,512 ); //change numbers
 
 	map.Init_map_position.x = 0;
 	map.Init_map_position.y = 150;
@@ -39,7 +39,7 @@ Map_S mapNew(const char* filename, int SizeX, int SizeY, const char* bgfilename,
 		//return NULL;
 
 	}
-	map.MAP->sprite = &temp_spr;// the road
+	map.MAP->sprite = temp_spr;// the road
 
 	map.bg_sky = backgroundLoad(bgfilename, bgSizeX, bgSizeY); // the sky
 	strncpy_s(map.MAP->name, filename, 20);
