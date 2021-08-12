@@ -7,8 +7,6 @@
 #include"vector.h"
 #include "simple_logger.h"
 
-
-
 /**
 *
 *@brief The blueprint for a background object. Representing the top section of the screen in a mode 7 game. Scrolls left to right
@@ -19,10 +17,8 @@
 typedef struct Background_M
 
 {
-
-	 char bg_name[24];
+	char bg_name[24];
 	Sprite_S* sky;
-
 }Background_M;
 
 /**
@@ -33,7 +29,7 @@ typedef struct Background_M
 *@param SizeY: the final height of the background when it's drawn
 *@return Background_M: returns a Background_M object so that it can be saved for later. This is necessary to use backgroundDraw()
 */
-Background_M* backgroundLoad(const char* filename, int SizeX, int SizeY);
+Background_M backgroundLoad(const char* filename, int SizeX, int SizeY);
 
 /**
 *

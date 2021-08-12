@@ -74,28 +74,21 @@ int main(int argc, char* args[])
 	}
 
 
-	//Sprite_S* balls = spriteLoad("PNG/m7_map.png", 512, 512);
-	// 
-	// 
-	// 
 	//Main loop flag
 	int done = 0;
 	//Event handler
 	SDL_Event e;
 	// the map entity
 	// 
-	Background_M sky = *backgroundLoad("SRC/PNG/m7_map.png", 512, 512);
-	//Entity_S* map = EntityNew();
-	//map->sprite= spriteLoad("SRC/PNG/m7_map.png", 512, 512);// -works
-	//Map_S* M0deS3v3n = mapNew("SRC/PNG/m7_map.png", 512, 512, "SRC/PNG/bg2.png",2048,150);// TODO GET THIS WORKING!!! REFACTOR TO A MAP
-	//Sprite_S* map = spriteLoad("SRC/PNG/bg2.png", 512, 512); //-works
+    //Background_M map = backgroundLoad("SRC/PNG/m7_map.png", 512, 512); //-works
+	//Entity_S map2 = *EntityNew();
+	//map2.sprite= spriteLoad("SRC/PNG/m7_map.png", 512, 512);// -works
+	Map_S M0deS3v3n = mapNew("SRC/PNG/m7_map.png", 512, 512, "SRC/PNG/bg2.png",2048,150);// TODO GET THIS WORKING!!! REFACTOR TO A MAP
+    //Sprite_S map3 = *spriteLoad("SRC/PNG/bg2.png", 512, 512); //-works
 	
 	
 	//the player entity
 
-	Vector2D Init_map_position;
-	Init_map_position.x = 0;
-	Init_map_position.y = 150;
 	
 	//spriteDraw(map, gRenderer, 0, Init_map_position);  -works
 	//const Uint8* currentKeyStates = SDL_GetKeyboardState( NULL );
@@ -104,46 +97,49 @@ int main(int argc, char* args[])
 	do
 	{
 		//	//Handle events on queue
-		//while (SDL_PollEvent(&e) != 0)
-		//{
-		//	//User requests quit
-		//	if (e.type == SDL_QUIT)
-		//	{
-		//		done = 1;
-		//	}
-		//	//User presses a key
-		//	else if (e.type == SDL_KEYDOWN)
-		//	{
-		//		//Select surfaces based on key press
-		//		switch (e.key.keysym.sym)
-		//		{
-		//		case SDLK_UP:
-		//			slog("up");
-		//			break;
+		while (SDL_PollEvent(&e) != 0)
+		{
+			//User requests quit
+			if (e.type == SDL_QUIT)
+			{
+				done = 1;
+			}
+			//User presses a key
+			else if (e.type == SDL_KEYDOWN)
+			{
+				//Select surfaces based on key press
+				switch (e.key.keysym.sym)
+				{
+				case SDLK_UP:
+					slog("up");
+					break;
 
-		//		case SDLK_DOWN:
-		//			slog("down");
-		//			break;
+				case SDLK_DOWN:
+					slog("down");
+					break;
 
-		//		case SDLK_LEFT:
-		//			slog("left");
-		//			break;
+				case SDLK_LEFT:
+					slog("left");
+					break;
 
-		//		case SDLK_RIGHT:
-		//			slog("right");
-		//			break;
+				case SDLK_RIGHT:
+					slog("right");
+					break;
 
-		//		case SDLK_ESCAPE:
-		//			done = 1;					
-		//			break;
+				case SDLK_ESCAPE:
+					done = 1;					
+					break;
 
-		//		default:
-		//			break;
-		//		}
-		//	}
-		//}
+				default:
+					break;
+				}
+			}
+		}
 		SDL_RenderClear(gRenderer);
-		spriteDraw(sky.sky, gRenderer, 0, Init_map_position);// TODO GET THIS WORKING!!! REFACTOR TO A MAP  -works with an entity or  sprite created
+		//spriteDraw(&map3, gRenderer, 0, Init_map_position);// TODO GET THIS WORKING!!! REFACTOR TO A MAP  -works with an entity or  sprite created
+		//spriteDraw(map2.sprite, gRenderer, 0, Init_map_position);// TODO GET THIS WORKING!!! REFACTOR TO A MAP  -works with an entity or  sprite created
+		//spriteDraw(M0deS3v3n.bg_sky.sky, gRenderer, 0, Init_map_position);// TODO GET THIS WORKING!!! REFACTOR TO A MAP  -works with an entity or  sprite created
+		spriteDraw(M0deS3v3n.MAP->sprite, gRenderer, 0, M0deS3v3n.Init_map_position);// TODO GET THIS WORKING!!! REFACTOR TO A MAP  -works with an entity or  sprite created
 		NextFrame();
 		//M0deS3v3n->MAP->sprite
     }while (!done);

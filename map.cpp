@@ -7,57 +7,53 @@
 
 
 
-Map_S* mapNew(const char* filename, int SizeX, int SizeY, const char* bgfilename, int bgSizeX, int bgSizeY)
+Map_S mapNew(const char* filename, int SizeX, int SizeY, const char* bgfilename, int bgSizeX, int bgSizeY)
  {
 	//BG sprites will be loaded at a set size of: 
 	
 	Map_S map;
   
-	//Entity_S* temp;
-	//temp = EntityNew();
-	//Sprite_S temp_spr = *spriteLoad(filename, 100,100 ); //change numbers
+	Entity_S* temp;
+	temp = EntityNew();
+	Sprite_S temp_spr = *spriteLoad(filename, 100,100 ); //change numbers
 
-	//map.MAP = temp;
+	map.Init_map_position.x = 0;
+	map.Init_map_position.y = 150;
+	map.Init_bg_position.x = 0;
+	map.Init_bg_position.y = 0;
 
-	//if (map.MAP == NULL)
-	//{
-	//	slog("Falied to create a Map Entity");
-	//	return NULL;
-	//	
 
-	//}
-
-	//map.MAP->sprite = &temp_spr;// the road
-	//
-	//if (map.MAP->sprite == NULL)
-	//{
-	//	slog("Failed to create a sprite for the Map Entity");
-	//	return NULL;
-
-	//}
-	
-	map.bg_sky = backgroundLoad(bgfilename, bgSizeX, bgSizeY); // the sky
-
-	if (map.bg_sky==NULL)
+	if (temp == NULL)
 	{
+		slog("Falied to create a Map Entity");
+		//return NULL;
+		
 
-		slog("Falied to create a background sprite");
-		return NULL;
 	}
+	map.MAP = temp;
 
-	strncpy_s(map.bg_name, bgfilename, 20);
-	//strncpy_s(map.MAP->name, "map", 20);
+	
+	if (&temp_spr == NULL)
+	{
+		slog("Failed to create a sprite for the Map Entity");
+		//return NULL;
 
-	return &map;
+	}
+	map.MAP->sprite = &temp_spr;// the road
+
+	map.bg_sky = backgroundLoad(bgfilename, bgSizeX, bgSizeY); // the sky
+	strncpy_s(map.MAP->name, filename, 20);
+
+	return map;
 
 }
 
 
 void mapFree(Map_S* map)
 {
-	spriteFree(map->MAP->sprite);
-	spriteFree(map->bg_sky->sky);
-	entityFree(&map->MAP);
+	//spriteFree(map->MAP->sprite);
+	//spriteFree();
+	//entityFree(&map->MAP);
 
 
 }

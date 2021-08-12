@@ -9,7 +9,7 @@
 
 
 
-Background_M* backgroundLoad(const char* filename, int SizeX, int SizeY)
+Background_M backgroundLoad(const char* filename, int SizeX, int SizeY)
 {
 	
 	
@@ -27,10 +27,10 @@ Background_M* backgroundLoad(const char* filename, int SizeX, int SizeY)
 	{
 	
 		slog("Failed to load sprite for a Map's background");
-		return NULL;
+		//return NULL;
 	}
 	strncpy_s(temp.bg_name, filename, 20);
-	return &temp;
+	return temp;
 }
 
 //void backgroundFree(Background_M* bg) 
