@@ -5,6 +5,7 @@
 #include"map.h"
 #include"entity.h"
 
+extern SDL_Renderer* gRenderer;
 
 
 Map_S mapNew(const char* filename, int SizeX, int SizeY, const char* bgfilename, int bgSizeX, int bgSizeY)
@@ -58,9 +59,11 @@ void mapFree(Map_S* map)
 
 
 
-void mapDraw(Map_S* map, SDL_Renderer* renderer, Vector2D destPosition, Vector2D imgPosition) ///technically the ,mapo it entity #1 so consider not using this in later implementastions
+void mapDraw(Map_S map) ///technically the ,mapo it entity #1 so consider not using this in later implementastions
 {
 
+	spriteDraw(map.bg_sky.sky, gRenderer, 0, map.Init_bg_position);// TODO REFACTOR TO A MAP  -works with an entity or  sprite created
+	spriteDraw(map.MAP->sprite, gRenderer, 0, map.Init_map_position);// TODO REFACTOR TO A MAP  -works with an entity or  sprite created
 
 
 
