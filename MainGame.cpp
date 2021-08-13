@@ -10,6 +10,7 @@
 #include "simple_logger.h"
 #include "init.h"
 #include"map.h"
+#include"car.h"
 #include"graphics.h"
 
 ////TO DO
@@ -83,14 +84,12 @@ int main(int argc, char* args[])
     //Background_M map = backgroundLoad("SRC/PNG/m7_map.png", 512, 512); //-works
 	//Entity_S map2 = *EntityNew();
 	//map2.sprite= spriteLoad("SRC/PNG/m7_map.png", 512, 512);// -works
-	Map_S M0deS3v3n = mapNew("SRC/PNG/m7_map.png", 512, 512, "SRC/PNG/bg2.png",2048,150);// TODO GET THIS WORKING!!! REFACTOR TO A MAP
-    //Sprite_S map3 = *spriteLoad("SRC/PNG/bg2.png", 512, 512); //-works
-	
-	
+	//Sprite_S map3 = *spriteLoad("SRC/PNG/bg2.png", 512, 512); //-works
+	Map_S M0deS3v3n = mapNew("SRC/PNG/m7_map.png", 512, 512, "SRC/PNG/bg2.png",2048,150);
+	Car_S Kuruma = CarNew("SRC\PNG.car2.png",128,128);
 	//the player entity
 
 	
-	//spriteDraw(map, gRenderer, 0, Init_map_position);  -works
 	//const Uint8* currentKeyStates = SDL_GetKeyboardState( NULL );
 
 	// the main game loop
@@ -136,12 +135,12 @@ int main(int argc, char* args[])
 			}
 		}
 		SDL_RenderClear(gRenderer);
-		//spriteDraw(&map3, gRenderer, 0, Init_map_position);// TODO GET THIS WORKING!!! REFACTOR TO A MAP  -works with an entity or  sprite created
-		//spriteDraw(map2.sprite, gRenderer, 0, Init_map_position);// TODO GET THIS WORKING!!! REFACTOR TO A MAP  -works with an entity or  sprite created
-		spriteDraw(M0deS3v3n.bg_sky.sky, gRenderer, 0, M0deS3v3n.Init_bg_position);// TODO GET THIS WORKING!!! REFACTOR TO A MAP  -works with an entity or  sprite created
-		spriteDraw(M0deS3v3n.MAP->sprite, gRenderer, 0, M0deS3v3n.Init_map_position);// TODO GET THIS WORKING!!! REFACTOR TO A MAP  -works with an entity or  sprite created
+		//spriteDraw(&map3, gRenderer, 0, Init_map_position);
+		//spriteDraw(map2.sprite, gRenderer, 0, Init_map_position);
+		spriteDraw(M0deS3v3n.bg_sky.sky, gRenderer, 0, M0deS3v3n.Init_bg_position);// TODO REFACTOR TO A MAP  -works with an entity or  sprite created
+		spriteDraw(M0deS3v3n.MAP->sprite, gRenderer, 0, M0deS3v3n.Init_map_position);// TODO REFACTOR TO A MAP  -works with an entity or  sprite created
+		spriteDraw(Kuruma.car->sprite, gRenderer, 0, Kuruma.Init_car_position);// TODO REFACTOR TO A MAP  -works with an entity or  sprite created
 		NextFrame();
-		//M0deS3v3n->MAP->sprite
     }while (!done);
 
 //FREE UP EVERYTHING HERE

@@ -15,8 +15,7 @@ Map_S mapNew(const char* filename, int SizeX, int SizeY, const char* bgfilename,
   
 	Entity_S* temp;
 	temp = EntityNew();
-	Sprite_S* temp_spr = spriteLoad(filename, 512,512 ); //change numbers
-
+	Sprite_S* temp_spr = spriteLoad(filename, 512,512 ); 
 	map.Init_map_position.x = 0;
 	map.Init_map_position.y = 150;
 	map.Init_bg_position.x = 0;
