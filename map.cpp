@@ -11,11 +11,10 @@ Map_S mapNew(const char* filename, int SizeX, int SizeY, const char* bgfilename,
  {
 	//BG sprites will be loaded at a set size of: 
 	
-	Map_S map;
-  
+	Map_S map;  
 	Entity_S* temp;
 	temp = EntityNew();
-	Sprite_S* temp_spr = spriteLoad(filename, 512,512 ); 
+	Sprite_S* temp_spr = spriteLoad(filename, SizeX,SizeY ); 
 	map.Init_map_position.x = 0;
 	map.Init_map_position.y = 150;
 	map.Init_bg_position.x = 0;

@@ -7,7 +7,7 @@
 
 typedef struct Car_S
 {
-	Entity_S* car;
+	Entity_S* CAR;
 	Vector2D Init_car_position;
 	
 }Car_S;

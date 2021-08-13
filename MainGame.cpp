@@ -18,10 +18,10 @@
 
 REFACTOR WHENEVER POSSIBLE (player,background,map)
 
-1  implememnt entity system and MAP system.
-2  test spritefreeAll() and get it working
-3  add sprite free all to init()
-4  begin basic player entity
+1  implememnt entity system and MAP system. ok 8/12
+2  test entity/spritefreeAll() and get it working
+3  add entity/sprite free all to init()
+4  begin basic player and car entity
 5  begin pointer funtions implentation on the player entity
 6  test and make sure pointer function work in the loop (draw,think,update,free)
 7  glib test/implement
@@ -31,12 +31,12 @@ REFACTOR WHENEVER POSSIBLE (player,background,map)
 
 
 //at this point you may begin and start to understand
-// "mode 7 rendering"
+// "mode 7 rendering" in off time work on the below if/when possible
 
 
 
 ?? import chipmunk/phyiscs (research)
-?? ^^implment (touch) for an entities
+?? ^^implment (touch) for all entities
 ??? HUD
 ??? Music
 ??? Title screen
@@ -86,7 +86,7 @@ int main(int argc, char* args[])
 	//map2.sprite= spriteLoad("SRC/PNG/m7_map.png", 512, 512);// -works
 	//Sprite_S map3 = *spriteLoad("SRC/PNG/bg2.png", 512, 512); //-works
 	Map_S M0deS3v3n = mapNew("SRC/PNG/m7_map.png", 512, 512, "SRC/PNG/bg2.png",2048,150);
-	Car_S Kuruma = CarNew("SRC\PNG.car2.png",128,128);
+	Car_S Kuruma = CarNew("SRC/PNG/car2.png",128,128);
 	//the player entity
 
 	
@@ -139,7 +139,7 @@ int main(int argc, char* args[])
 		//spriteDraw(map2.sprite, gRenderer, 0, Init_map_position);
 		spriteDraw(M0deS3v3n.bg_sky.sky, gRenderer, 0, M0deS3v3n.Init_bg_position);// TODO REFACTOR TO A MAP  -works with an entity or  sprite created
 		spriteDraw(M0deS3v3n.MAP->sprite, gRenderer, 0, M0deS3v3n.Init_map_position);// TODO REFACTOR TO A MAP  -works with an entity or  sprite created
-		spriteDraw(Kuruma.car->sprite, gRenderer, 0, Kuruma.Init_car_position);// TODO REFACTOR TO A MAP  -works with an entity or  sprite created
+		spriteDraw(Kuruma.CAR->sprite, gRenderer, 0, Kuruma.Init_car_position);// TODO REFACTOR TO A MAP  -works with an entity or  sprite created
 		NextFrame();
     }while (!done);
 
