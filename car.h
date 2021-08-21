@@ -14,7 +14,7 @@ typedef struct Car_S
 
 
 Car_S CarNew(const char* filename, int SizeX, int SizeY);// the size of the backgrounds should be made unified
-void carFree(Car_S* map);
-void carDraw(Car_S* map, SDL_Renderer* renderer, Vector2D destPosition, Vector2D imgPosition); ///technically the ,mapo it entity #1 so consider not using this in later implementastions
+void carFree(Car_S* car);
+void carDraw(Car_S car, SDL_Renderer* renderer, Vector2D destPosition); ///technically the ,mapo it entity #1 so consider not using this in later implementastions
 
 #endif

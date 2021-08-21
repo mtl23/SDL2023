@@ -18,12 +18,17 @@
 
 REFACTOR WHENEVER POSSIBLE (player,background,map)
 
-1  implememnt entity system and MAP system. ok 8/12
+1 ok 8/20 implememnt entity system and MAP system. 
+4 ok 8/20 begin basic player and car entity
+
+
 2  test entity/spritefreeAll() and get it working
 3  add entity/sprite free all to init()
-4  begin basic player and car entity
 5  begin pointer funtions implentation on the player entity
 6  test and make sure pointer function work in the loop (draw,think,update,free)
+
+
+
 7  glib test/implement
 8  jansson test/implement
 9  screen scrolling
@@ -135,10 +140,8 @@ int main(int argc, char* args[])
 			}
 		}
 		SDL_RenderClear(gRenderer);
-		//spriteDraw(&map3, gRenderer, 0, Init_map_position);
-		//spriteDraw(map2.sprite, gRenderer, 0, Init_map_position);
 		mapDraw(M0deS3v3n);
-		spriteDraw(Kuruma.CAR->sprite, gRenderer, 0, Kuruma.Init_car_position);// TODO REFACTOR TO A MAP  -works with an entity or  sprite created
+		carDraw(Kuruma, gRenderer, Kuruma.Init_car_position);
 		NextFrame();
     }while (!done);
 

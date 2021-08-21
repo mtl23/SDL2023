@@ -33,3 +33,10 @@ if (temp == NULL)
 
 	return temp_car;
 }
+
+void carDraw(Car_S car, SDL_Renderer* renderer, Vector2D destPosition)
+{
+
+	spriteDraw(car.CAR->sprite, renderer, 0, destPosition);// TODO REFACTOR TO A MAP  -works with an entity or  sprite created
+
+}
