@@ -78,4 +78,5 @@ Sprite_S* spriteLoad(const char* filename, int sizeX, int sizeY);
 
 void spriteDraw(Sprite_S* sprite, SDL_Renderer* renderer, int frame, Vector2D position);
 void spriteFree(Sprite_S* sprite);
+void spriteFreeAll();
 #endif

@@ -167,3 +167,6 @@ void spriteDraw(Sprite_S* sprite, SDL_Renderer* renderer, int frame, Vector2D po
 	}
 
 }
+	
+
+

@@ -28,7 +28,7 @@ typedef struct Entity_S
 	Vector2D position;
 	int next_think;/**time index for next_think*/
 	int think_rate; /**how often to run think*/
-	void(*draw) (struct Entity_S* self, SDL_Renderer* renderer); /**logic*<*/
+	void(*draw) (struct Entity_S* self, SDL_Renderer* renderer, int frame, Vector2D destPosition); /**logic*<*/
 	void(*think) (struct Entity_S* self); /**logic*<*/
 	void(*update) (struct Entity_S* self); /**physics*<*/
 	void(*touch) (struct Entity_S* self, struct Entity_S* other); /**collsions*<*/

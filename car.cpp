@@ -29,8 +29,10 @@ if (temp == NULL)
 		//return NULL;
 
 	}
+	temp_car.CAR->position.x = temp_car.Init_car_position.x;
+	temp_car.CAR->position.y = temp_car.Init_car_position.y;
 	temp_car.CAR->sprite = temp_spr;// the car
-
+	temp_car.CAR->draw = &entityDraw;
 	return temp_car;
 }
 

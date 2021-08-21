@@ -191,7 +191,9 @@ void entityDrawAll()
 		{
 			continue;
 		}
-		entityList[i].draw(&entityList[i], gRenderer);
+		entityList[i].draw(&entityList[i], gRenderer, entityList[i].sprite->frame, entityList[i].position);
 	}
 
 }
+
+
