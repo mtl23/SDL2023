@@ -21,7 +21,7 @@ Map_S mapNew(const char* filename, int SizeX, int SizeY, const char* bgfilename,
 	map.Init_bg_position.x = 0;
 	map.Init_bg_position.y = 0;
 
-
+	
 	if (temp == NULL)
 	{
 		slog("Falied to create a Map Entity");
@@ -42,6 +42,9 @@ Map_S mapNew(const char* filename, int SizeX, int SizeY, const char* bgfilename,
 
 	map.bg_sky = backgroundLoad(bgfilename, bgSizeX, bgSizeY); // the sky
 	strncpy_s(map.MAP->name, filename, 20);
+	map.MAP->position.x = map.Init_map_position.x;
+	map.MAP->position.y = map.Init_map_position.y;
+	map.MAP->draw = &entityDraw;// this does no account for the background
 
 	return map;
 

@@ -18,10 +18,8 @@
 
 REFACTOR WHENEVER POSSIBLE (player,background,map)
 
-
-
-
-
+1  pointer logic &draw implementations
+2  &think unique for map and car and player
 3  glib test/implement
 4  jansson test/implement
 5  screen scrolling
@@ -60,13 +58,6 @@ const Uint8* keys;
 int main(int argc, char* args[])
 {
 
-	//Vector2D Init_map_position;// refactor for map position
-	//Init_map_position.x = 0;// refactor for map position
-	//Init_map_position.y = 150;// refactor for map position
-
-
-
-
 	//Start up SDL and create window
 	if (!init())
 	{
@@ -78,17 +69,10 @@ int main(int argc, char* args[])
 	int done = 0;
 	//Event handler
 	SDL_Event e;
-	// the map entity
-	// 
-    //Background_M map = backgroundLoad("SRC/PNG/m7_map.png", 512, 512); //-works
-	//Entity_S map2 = *EntityNew();
-	//map2.sprite= spriteLoad("SRC/PNG/m7_map.png", 512, 512);// -works
-	//Sprite_S map3 = *spriteLoad("SRC/PNG/bg2.png", 512, 512); //-works
 	Map_S M0deS3v3n = mapNew("SRC/PNG/m7_map.png", 512, 512, "SRC/PNG/bg2.png",2048,150);
 	Car_S Kuruma = CarNew("SRC/PNG/car2.png",128,128);
 	//the player entity
-
-	
+		
 	//const Uint8* currentKeyStates = SDL_GetKeyboardState( NULL );
 
 	// the main game loop
@@ -134,7 +118,7 @@ int main(int argc, char* args[])
 			}
 		}
 		SDL_RenderClear(gRenderer);
-		entityDrawAll();//  8/21 for starters the bg,map, and car
+		entityDrawAll();//  8/21 should i incorportae the bg? but how is best?
 		NextFrame();
     }while (!done);
 
