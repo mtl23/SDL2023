@@ -77,7 +77,7 @@ extern int entityMax;
 
 			//load glib
 		    //jannson
-			// chipmunk
+			// chipmunk/physics
 
 			//Create window
 			SDL_CreateWindowAndRenderer(SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_RESIZABLE, &gWindow, &gRenderer);

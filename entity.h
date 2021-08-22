@@ -110,6 +110,8 @@ void entityUpdateAll();
 void entityThinkAll();
 
 void carThink ( Entity_S* self);
+void bgThink ( Entity_S* self);
+void mapThink ( Entity_S* self);
 
 float GetXOrign();
 

@@ -1,3 +1,4 @@
+#include <string.h>
 #include "vector.h"
 #include "sprite.h"
 #include "entity.h"
@@ -33,14 +34,15 @@ if (temp == NULL)
 	temp_car.CAR->position.y = temp_car.Init_car_position.y;
 	temp_car.CAR->sprite = temp_spr;// the car
 	temp_car.CAR->velocity = 1;	
+	strncpy_s(temp_car.CAR->name, filename, 20);
+	temp_car.CAR->accel = 0;	
+	temp_car.CAR->is_UI = 0;
+	temp_car.CAR->is_Map = 1;
+	temp_car.CAR->is_car = 0;
+	temp_car.CAR->is_AI = 0;
+	temp_car.CAR->is_Obstacle = 0;
 	temp_car.CAR->draw = &entityDraw;
 	temp_car.CAR->think = &carThink;
 	return temp_car;
 }
 
-//void carDraw(Car_S car, SDL_Renderer* renderer, Vector2D destPosition)
-//{
-//
-//	spriteDraw(car.CAR->sprite, renderer, 0, destPosition);// TODO REFACTOR TO A MAP  -works with an entity or  sprite created
-//
-//}

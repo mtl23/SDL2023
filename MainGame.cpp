@@ -12,15 +12,21 @@
 #include"map.h"
 #include"car.h"
 #include"graphics.h"
-
+#include "glib.h"
+#include "jansson.h"  
 ////TO DO
 /*
 
 REFACTOR WHENEVER POSSIBLE (player,background,map)
 
-2  &think unique for map and car and player
 3  glib test/implement
-4  jansson test/implement
+??? Music
+
+
+??? HUD/fonts
+
+??? Title screen
+
 5  screen scrolling
 
 
@@ -29,14 +35,16 @@ REFACTOR WHENEVER POSSIBLE (player,background,map)
 // "mode 7 rendering" in off time work on the below if/when possible
 
 
-
 ?? import chipmunk/phyiscs (research)
 ?? ^^implment (touch) for all entities
-??? HUD
-??? Music
-??? Title screen
+
 ??  Obstacles
+
+
 ??  AI
+?? race logic (tracking position)
+
+
 ??  Multiple tracks
 ??  Map editor
 */
@@ -62,6 +70,17 @@ int main(int argc, char* args[])
 	{
 		printf("Failed to initialize!\n");
 	}
+
+	//// Create an json interger, a json test.
+	json_int_t x = 123123123;
+	printf("x is % " JSON_INTEGER_FORMAT "\n", x);
+
+
+	//GString* mat;
+	//mat = g_string_new("Jasson, and ");
+	//g_string_append_printf(mat, "Glib all tested and working\nThanks");
+	//printf("%s", mat->str);
+
 
 
 	//Main loop flag

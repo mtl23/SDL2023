@@ -213,3 +213,14 @@ void carThink(Entity_S* self)
 
 }
 
+
+void bgThink(Entity_S* self) 
+{
+	//slog(" BG Think");
+}
+
+void mapThink(Entity_S* self) 
+{
+	//slog("Map Think");
+}
+

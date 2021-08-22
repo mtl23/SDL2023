@@ -151,19 +151,13 @@ void spriteDraw(Sprite_S* sprite, SDL_Renderer* renderer, int frame, Vector2D po
 	dest.h = sprite->frameH;
 
 	//find sprite to draw in the list
-   //slog("looking for sprite to draw");
 	int i;
 	for (i = 0; i <= spriteMax; i++)
 	{
 		if (spriteList[i].image == sprite->image)
 		{
-			//slog("Drawing");
-			// send sprite texture to renderer
-			//SDL_SetTextureColorMod(spriteList[i].image,spriteList[i].color.r,spriteList[i].color.g,spriteList[i].color.b);
-			//slog("%d",spriteList[i].angle);
 			SDL_RenderCopyEx(renderer, spriteList[i].image, &rect, &dest, spriteList[i].angle, NULL, SDL_FLIP_NONE); //tell the renderer theres something you want to do 
 		}
-		//printf("Finished looking for a sprite to draw in the list\n");
 	}
 
 }
