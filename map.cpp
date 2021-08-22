@@ -40,7 +40,7 @@ Map_S mapNew(const char* filename, int SizeX, int SizeY, const char* bgfilename,
 	}
 	map.MAP->sprite = temp_spr;// the road
 
-	map.bg_sky = backgroundLoad(bgfilename, bgSizeX, bgSizeY); // the sky
+	map.bg_sky = backgroundLoad(bgfilename, bgSizeX, bgSizeY, map.Init_bg_position); // the sky
 	strncpy_s(map.MAP->name, filename, 20);
 	map.MAP->position.x = map.Init_map_position.x;
 	map.MAP->position.y = map.Init_map_position.y;
@@ -60,15 +60,20 @@ void mapFree(Map_S* map)
 
 }
 
+void mapthink(Map_S* self)
+{}
+void mapupdate(Map_S* self)
+{}
+void maptouch(Map_S* self, Entity_S* other)
+{}
 
-
-void mapDraw(Map_S map) ///technically the ,mapo it entity #1 so consider not using this in later implementastions
-{
-
-	spriteDraw(map.bg_sky.sky, gRenderer, 0, map.Init_bg_position);// TODO REFACTOR TO A MAP  -works with an entity or  sprite created
-	spriteDraw(map.MAP->sprite, gRenderer, 0, map.Init_map_position);// TODO REFACTOR TO A MAP  -works with an entity or  sprite created
-
-
-
-
-}
+//void mapDraw(Map_S map) ///technically the ,mapo it entity #1 so consider not using this in later implementastions
+//{
+//
+//	//spriteDraw(map.bg_sky.sky, gRenderer, 0, map.Init_bg_position);// TODO REFACTOR TO A MAP  -works with an entity or  sprite created
+//	spriteDraw(map.MAP->sprite, gRenderer, 0, map.Init_map_position);// TODO REFACTOR TO A MAP  -works with an entity or  sprite created
+//
+//
+//
+//
+//}

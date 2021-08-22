@@ -26,7 +26,9 @@ typedef struct Map_S
 	Background_M bg_sky;
 	Vector2D Init_map_position;
 	Vector2D Init_bg_position;
-
+	void(*think) (struct Map_S* self); /**logic*<*/
+	void(*update) (struct Map_S* self); /**physics*<*/
+	void(*touch) (struct Map_S* self, struct Entity_S* other); /**collsions*<*/
 }Map_S;
 
 /**
@@ -40,12 +42,14 @@ typedef struct Map_S
 */
 Map_S mapNew( const char* filename, int SizeX, int SizeY, const char* bgfilename,  int bgSizeX,int bgSizeY);// the size of the backgrounds should be made unified
 void mapFree(Map_S map);
-void mapDraw(Map_S map); ///technically the ,mapo it entity #1 so consider not using this in later implementastions
+//void mapDraw(Map_S map); ///technically the ,mapo it entity #1 so consider not using this in later implementastions
 
 // map draw will likely need to be refactored, with more parameters for how to draw floor and sky
 
 
 // include entity think / touch/ draw / update / and such
 
-
+void mapthink( Map_S* self);
+void mapupdate( Map_S* self);
+void maptouch(Map_S* self, Entity_S* other);
 #endif

@@ -18,7 +18,6 @@
 
 REFACTOR WHENEVER POSSIBLE (player,background,map)
 
-1  pointer logic &draw implementations
 2  &think unique for map and car and player
 3  glib test/implement
 4  jansson test/implement
@@ -118,7 +117,8 @@ int main(int argc, char* args[])
 			}
 		}
 		SDL_RenderClear(gRenderer);
-		entityDrawAll();//  8/21 should i incorportae the bg? but how is best?
+		entityThinkAll();
+		entityDrawAll();//includes car, map and bg!!
 		NextFrame();
     }while (!done);
 

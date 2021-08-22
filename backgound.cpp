@@ -9,11 +9,18 @@
 
 
 
-Background_M backgroundLoad(const char* filename, int SizeX, int SizeY)
+Background_M backgroundLoad(const char* filename, int SizeX, int SizeY,Vector2D destpostion)
 {
 	
 	
 	Background_M temp;
+	temp.sky = EntityNew();
+	if (temp.sky == NULL)
+	{
+
+		slog("Failed to load entity for a Map's background");
+	
+	}
 	//temp = (Background_M*)malloc(sizeof(Background_M));
 	//memset(temp, 0, sizeof(Background_M));
 
@@ -21,15 +28,21 @@ Background_M backgroundLoad(const char* filename, int SizeX, int SizeY)
 	//temp.sky = (Sprite_S*)malloc(sizeof(Sprite_S));
 	//memset(temp->sky, 0, sizeof(Sprite_S));
 
-	temp.sky = spriteLoad(filename,SizeX,SizeY);
+	temp.sky->sprite = spriteLoad(filename,SizeX,SizeY);
 
-	if (temp.sky ==NULL)
+	if (temp.sky->sprite ==NULL)
 	{
 	
 		slog("Failed to load sprite for a Map's background");
 		//return NULL;
 	}
 	strncpy_s(temp.bg_name, filename, 20);
+
+	temp.sky->position.x = destpostion.x;
+	temp.sky->position.y = destpostion.y;
+	temp.sky->draw = &entityDraw;
+
+
 	return temp;
 }
 

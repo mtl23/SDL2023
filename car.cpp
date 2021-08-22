@@ -32,13 +32,15 @@ if (temp == NULL)
 	temp_car.CAR->position.x = temp_car.Init_car_position.x;
 	temp_car.CAR->position.y = temp_car.Init_car_position.y;
 	temp_car.CAR->sprite = temp_spr;// the car
+	temp_car.CAR->velocity = 1;	
 	temp_car.CAR->draw = &entityDraw;
+	temp_car.CAR->think = &carThink;
 	return temp_car;
 }
 
-void carDraw(Car_S car, SDL_Renderer* renderer, Vector2D destPosition)
-{
-
-	spriteDraw(car.CAR->sprite, renderer, 0, destPosition);// TODO REFACTOR TO A MAP  -works with an entity or  sprite created
-
-}
+//void carDraw(Car_S car, SDL_Renderer* renderer, Vector2D destPosition)
+//{
+//
+//	spriteDraw(car.CAR->sprite, renderer, 0, destPosition);// TODO REFACTOR TO A MAP  -works with an entity or  sprite created
+//
+//}

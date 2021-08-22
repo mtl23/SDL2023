@@ -4,6 +4,7 @@
 #include <string.h>
 #include "sprite.h"
 #include "SDL_image.h"
+#include "car.h"
 #include "entity.h"
 #include "vector.h"
 #include "simple_logger.h"
@@ -15,6 +16,9 @@ Entity_S* entityList = NULL;
 int numEntity = 0;
 int entityMax = 500;
 
+extern int SCREEN_HEIGHT_OFFSET = 150;//revert to zero
+extern int SCREEN_WIDTH = 512;
+extern int SCREEN_HEIGHT = 512 + SCREEN_HEIGHT_OFFSET;
 
 bool InitEntitySystem(int EntityMax)
 {
@@ -193,7 +197,19 @@ void entityDrawAll()
 		}
 		entityList[i].draw(&entityList[i], gRenderer, entityList[i].sprite->frame, entityList[i].position);
 	}
+}
+//
+void carThink(Entity_S* self)
+{
+	
+
+	if (self->position.y == SCREEN_HEIGHT_OFFSET || self->position.y >= (SCREEN_HEIGHT - SCREEN_HEIGHT_OFFSET))//change direction
+	{
+		self->velocity = self->velocity * -1;
+	}
+
+
+	self->position.y = self->position.y+ self->velocity;
 
 }
-
 

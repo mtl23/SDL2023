@@ -1,6 +1,7 @@
 #ifndef __ENTITY_H__
 #define __ENTITY_H__
-
+#include <SDL.h>
+#include <SDL_image.h>
 #include "vector.h"
 #include "sprite.h"
 #include "simple_logger.h"
@@ -22,8 +23,15 @@
 typedef struct Entity_S
 
 {
+	int is_UI;
+	int is_Map;
+	int is_car;
+	int is_AI;
+	int is_Obstacle;
 	int inuse;
 	char name[32];
+	float velocity; 
+	float accel;
 	Sprite_S* sprite;
 	Vector2D position;
 	int next_think;/**time index for next_think*/
@@ -83,6 +91,8 @@ Entity_S* entityLoad(char* filename, Vector2D position);
 *@param position: A 2D vector used to state position on the screen
 */
 void entityDraw(Entity_S* entity, SDL_Renderer* renderer, int frame, Vector2D position);
+
+//void carDraw(Car_S* car, SDL_Renderer* renderer, int frame, Vector2D position);
 /**
 *
 *@brief Goes through the Entity List and calls each entity's draw fucntion
@@ -98,6 +108,8 @@ void entityUpdateAll();
 *@brief Goes through the Entity List and calls each entity's think fucntion
 */
 void entityThinkAll();
+
+void carThink ( Entity_S* self);
 
 float GetXOrign();
 

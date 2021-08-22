@@ -6,6 +6,7 @@
 #include"sprite.h"
 #include"vector.h"
 #include "simple_logger.h"
+#include "entity.h"
 
 /**
 *
@@ -18,7 +19,10 @@ typedef struct Background_M
 
 {
 	char bg_name[24];
-	Sprite_S* sky;
+	Entity_S* sky;
+	void(*think) (struct Background_M* self); /**logic*<*/
+	void(*update) (struct Background_M* self); /**physics*<*/
+
 }Background_M;
 
 /**
@@ -29,7 +33,7 @@ typedef struct Background_M
 *@param SizeY: the final height of the background when it's drawn
 *@return Background_M: returns a Background_M object so that it can be saved for later. This is necessary to use backgroundDraw()
 */
-Background_M backgroundLoad(const char* filename, int SizeX, int SizeY);
+Background_M backgroundLoad(const char* filename, int SizeX, int SizeY, Vector2D destpostion);
 
 /**
 *
@@ -47,6 +51,9 @@ void backgroundFree(Background_M* bg);
 
 */
 
-void backgroundDraw(Background_M* bg, SDL_Renderer* renderer, Vector2D destPosition, Vector2D imgPosition);//should this be a pinter function? or called by another pinter function?
+//void backgroundDraw(Background_M* bg, SDL_Renderer* renderer, Vector2D destPosition, Vector2D imgPosition);//should this be a pinter function? or called by another pinter function?
 
+void BGthink(Background_M* self);
+
+void BGUpdate(Background_M* self);
 #endif
