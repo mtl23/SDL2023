@@ -19,13 +19,11 @@
 
 REFACTOR WHENEVER POSSIBLE (player,background,map)
 
-3  glib test/implement
-??? Music
 
-
-??? HUD/fonts
 
 ??? Title screen
+
+??? HUD/fonts
 
 5  screen scrolling
 
@@ -34,7 +32,7 @@ REFACTOR WHENEVER POSSIBLE (player,background,map)
 //at this point you may begin and start to understand
 // "mode 7 rendering" in off time work on the below if/when possible
 
-
+??  glib test/implement
 ?? import chipmunk/phyiscs (research)
 ?? ^^implment (touch) for all entities
 
@@ -92,6 +90,21 @@ int main(int argc, char* args[])
 	//the player entity
 		
 	//const Uint8* currentKeyStates = SDL_GetKeyboardState( NULL );
+
+
+	// music
+	Mix_Music* demo_music;
+	demo_music = Mix_LoadMUS("SRC/sfx/surf.mid");
+
+
+	if (Mix_PlayingMusic() == 0)
+	{
+		//Play the music
+		if (Mix_PlayMusic(demo_music, -1) == -1)
+		{
+			return 1;
+		}
+	}
 
 	// the main game loop
 	do
