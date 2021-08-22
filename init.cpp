@@ -8,7 +8,12 @@
 #include "SDL_mixer.h" 
 #include "simple_logger.h"
 #include "entity.h"
-
+#include "jansson.h"  
+#include"map.h"
+#include"car.h"
+#include"graphics.h"
+#include "glib.h"
+#include "title.h"  
 //The window we'll be rendering to
 extern SDL_Window* gWindow;
 
@@ -29,7 +34,7 @@ extern int entityMax;
 
 	
 	//Screen dimension constants
-	 const int SCREEN_HEIGHT_OFFSET = 150;//revert to zero
+	const int SCREEN_HEIGHT_OFFSET = 150;//revert to zero
 	const int SCREEN_WIDTH = 512;
 	const int SCREEN_HEIGHT = 512+ SCREEN_HEIGHT_OFFSET;
 
@@ -62,6 +67,9 @@ extern int entityMax;
 			
 			}
 
+			//// Create an json interger, a json test.
+			json_int_t x = 123123123;
+			printf("x is % " JSON_INTEGER_FORMAT "\n", x);
 			// Initialize fonts
 			if (TTF_Init() == -1)
 			{
@@ -76,7 +84,6 @@ extern int entityMax;
 			}
 
 			//load glib
-		    //jannson
 			// chipmunk/physics
 
 			//Create window
@@ -103,6 +110,33 @@ extern int entityMax;
 
 
 
+ int initDemoProps()
+ {
+	 // Inital loading of main assets for the demo
+	 Map_S M0deS3v3n = mapNew("SRC/PNG/m7_map.png", 512, 512, "SRC/PNG/bg2.png", 2048, 150);
+	 Car_S Kuruma = CarNew("SRC/PNG/car2.png", 128, 128);
+	 //the player entity
+
+	 //const Uint8* currentKeyStates = SDL_GetKeyboardState( NULL );
+
+
+	 // main menu music
+	
+	 Mix_Music* menu_music;
+	// menu_music = SDL_LoadWAV("SRC/music/BigBlue.mid");// why is this not playing with a WAV??
+	 menu_music = Mix_LoadMUS("SRC/music/BigBlue.mid");// why is this not playing with a WAV??
+
+	 if (Mix_PlayingMusic() == 0)
+	 {
+		 //Play the music
+		 if (Mix_PlayMusic(menu_music, -1) == -1)
+		 {
+			 return 0;
+		 }
+	 }
+
+	 return 1;
+ }
 
 
 

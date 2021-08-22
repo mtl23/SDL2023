@@ -6,6 +6,6 @@
 
 
 bool init();
-void initDemoProps();
+int initDemoProps();
 void close();
 #endif
