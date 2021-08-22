@@ -14,28 +14,20 @@
 #include"graphics.h"
 #include "glib.h"
 #include "jansson.h"  
+#include "title.h"  
 ////TO DO
 /*
 
 REFACTOR WHENEVER POSSIBLE (player,background,map)
 
-
-
-??? Title screen
-
-??? HUD/fonts
-
 5  screen scrolling
-
-
 
 //at this point you may begin and start to understand
 // "mode 7 rendering" in off time work on the below if/when possible
 
-??  glib test/implement
+
 ?? import chipmunk/phyiscs (research)
 ?? ^^implment (touch) for all entities
-
 ??  Obstacles
 
 
@@ -43,6 +35,8 @@ REFACTOR WHENEVER POSSIBLE (player,background,map)
 ?? race logic (tracking position)
 
 
+??  glib test/implement
+??  save logic
 ??  Multiple tracks
 ??  Map editor
 */
@@ -85,6 +79,10 @@ int main(int argc, char* args[])
 	int done = 0;
 	//Event handler
 	SDL_Event e;
+
+
+
+	/// REFACTOR HERE//////////////////////////////////////////////////////////////////////////////////////
 	Map_S M0deS3v3n = mapNew("SRC/PNG/m7_map.png", 512, 512, "SRC/PNG/bg2.png",2048,150);
 	Car_S Kuruma = CarNew("SRC/PNG/car2.png",128,128);
 	//the player entity
@@ -94,22 +92,31 @@ int main(int argc, char* args[])
 
 	// music
 	Mix_Music* demo_music;
-	demo_music = Mix_LoadMUS("SRC/sfx/surf.mid");
-
+	demo_music = Mix_LoadMUS("SRC/music/surf.mid");
+	Mix_Music* menu_music;
+	menu_music = Mix_LoadMUS("sfx/Theme.WAV");
 
 	if (Mix_PlayingMusic() == 0)
 	{
 		//Play the music
-		if (Mix_PlayMusic(demo_music, -1) == -1)
+		if (Mix_PlayMusic(menu_music, -1) == -1)
 		{
 			return 1;
 		}
 	}
+	ShowTitle();
+	Mix_PlayMusic(demo_music, -1);
+
+
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 
 	// the main game loop
 	do
 	{
-		//	//Handle events on queue
+		//	//Handle events on queue ///does this need to be here?
 		while (SDL_PollEvent(&e) != 0)
 		{
 			//User requests quit
@@ -148,6 +155,7 @@ int main(int argc, char* args[])
 				}
 			}
 		}
+		// end does this need to be here ? INPUT SECTION REFACTOR!!!
 		SDL_RenderClear(gRenderer);
 		entityThinkAll();
 		entityDrawAll();//includes car, map and bg!!
