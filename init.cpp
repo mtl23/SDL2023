@@ -77,7 +77,7 @@ extern int entityMax;
 				return false;
 			}
 			// Initialize sounds
-			if (Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 4096) == -1)
+			if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) == -1)
 			{
 				printf("Falied to load SDL_mixer audio system");
 				return false;
@@ -122,20 +122,15 @@ extern int entityMax;
 
 	 // main menu music
 	
-	 Mix_Music* menu_music;
+	 Mix_Chunk* menu_music;
 	// menu_music = SDL_LoadWAV("SRC/music/BigBlue.mid");// why is this not playing with a WAV??
-	 menu_music = Mix_LoadMUS("SRC/music/BigBlue.mid");// why is this not playing with a WAV??
+	 menu_music = Mix_LoadWAV("SRC/music/Theme.WAV");// why is this not playing with a WAV??
 
-	 if (Mix_PlayingMusic() == 0)
-	 {
-		 //Play the music
-		 if (Mix_PlayMusic(menu_music, -1) == -1)
-		 {
-			 return 0;
-		 }
-	 }
+	 //Play the music
+	 Mix_PlayChannel(-1, menu_music, 0);
+		
 
-	 return 1;
+	 return 0;
  }
 
 

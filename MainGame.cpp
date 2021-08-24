@@ -93,6 +93,8 @@ int main(int argc, char* args[])
 
 	// Go to the title screen
 	ShowTitle();
+	Mix_HaltChannel(-1);
+
 	changeMusic("SRC/music/surf.mid");
 
 	// the main game loop
