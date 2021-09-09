@@ -16,9 +16,9 @@ TTF_Font *font =  NULL;
 TTF_Font *font2 =  NULL;
 TTF_Font *font3 =  NULL;
 
-font =	TTF_OpenFont( "SRC/fonts/font.ttf", 36 );
+font = TTF_OpenFont( "SRC/fonts/font.ttf", 36 );
 font2 =	TTF_OpenFont( "SRC/fonts/font1.ttf", 36 );
-font3  =	TTF_OpenFont( "SRC/fonts/font2.ttf", 36 );
+font3 = TTF_OpenFont( "SRC/fonts/font2.ttf", 36 );
 
 SDL_Rect Logo;
 

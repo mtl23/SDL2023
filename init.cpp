@@ -13,7 +13,8 @@
 #include"car.h"
 #include"graphics.h"
 #include "glib.h"
-#include "title.h"  
+#include "camera.h"
+#include "title.h" 
 //The window we'll be rendering to
 extern SDL_Window* gWindow;
 
@@ -24,19 +25,18 @@ extern SDL_Renderer* gRenderer;
 extern SDL_Surface* gScreenSurface;
 
 extern int entityMax;
+	
+///the camera a static singleton
+static Camera_S cam1;
 
+//Screen dimension constants
+const int SCREEN_HEIGHT_OFFSET = 150;//revert to zero takes away from the bottom of the screen going up
+const int SCREEN_WIDTH = 512;
+const int SCREEN_HEIGHT = 512 + SCREEN_HEIGHT_OFFSET;
 
 
  bool init()
 {
-
-
-
-	
-	//Screen dimension constants
-	const int SCREEN_HEIGHT_OFFSET = 150;//revert to zero
-	const int SCREEN_WIDTH = 512;
-	const int SCREEN_HEIGHT = 512+ SCREEN_HEIGHT_OFFSET;
 
 
 		//Initialization flag
@@ -114,14 +114,12 @@ extern int entityMax;
  {
 	 // Inital loading of main assets for the demo
 	 Map_S M0deS3v3n = mapNew("SRC/PNG/m7_map.png", 512, 512, "SRC/PNG/bg2.png", 2048, 150);
-	 Car_S Kuruma = CarNew("SRC/PNG/car2.png", 128, 128);
-	 //the player entity
+	 Player_S Player1 = PlayerInit("SRC/PNG/car2.png", 128, 128);
+	 CameraInit(M0deS3v3n, Player1, cam1);
 
 	 //const Uint8* currentKeyStates = SDL_GetKeyboardState( NULL );
 
-
-	 // main menu music
-	
+	 // main menu music	
 	 Mix_Chunk* menu_music;
 	// menu_music = SDL_LoadWAV("SRC/music/BigBlue.mid");// why is this not playing with a WAV??
 	 menu_music = Mix_LoadWAV("SRC/music/Theme.WAV");// why is this not playing with a WAV??

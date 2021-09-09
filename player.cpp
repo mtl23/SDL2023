@@ -11,23 +11,10 @@
 
 
 
-//
-//Player_S* PlayerInit() 
-//{
-//
-//
-//}
-//
-//
-//void PlayerFree(Player_S** player)
-//{
-//
-//
-//}
-//
-//
-//void PlayerChangeEntity(Player_S* player, Entity_S* entity)
-//{
-//
-//
-//}
+Player_S PlayerInit(const char* filename, int SizeX, int SizeY)
+{
+	Player_S temp;
+	strncpy_s(temp.name, filename, 20);
+	temp.CAR= CarNew("SRC/PNG/car2.png", 128, 128);
+	return temp;
+}

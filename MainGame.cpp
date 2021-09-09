@@ -9,9 +9,9 @@
 #include "SDL_mixer.h" 
 #include "simple_logger.h"
 #include "init.h"
-#include"map.h"
-#include"car.h"
-#include"graphics.h"
+#include "map.h"
+#include "car.h"
+#include "graphics.h"
 #include "glib.h"
 #include "jansson.h"  
 #include "title.h"  
@@ -21,21 +21,18 @@
 
 REFACTOR WHENEVER POSSIBLE (player,background,map)
 
-//  how to load WAV files?
 5  screen scrolling
 
 
+?? import chipmunk/phyiscs (research)
+?? ^^implment (touch) for all entities
 
 
 //at this point you may begin and start to understand
 // "mode 7 rendering" in off time work on the below if/when possible
 
 
-?? import chipmunk/phyiscs (research)
-?? ^^implment (touch) for all entities
 ??  Obstacles
-
-
 ??  AI
 ?? race logic (tracking position)
 

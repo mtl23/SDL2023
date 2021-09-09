@@ -15,12 +15,13 @@ Map_S mapNew(const char* filename, int SizeX, int SizeY, const char* bgfilename,
 	Map_S map;  
 	Entity_S* temp;
 	temp = EntityNew();
-	Sprite_S* temp_spr = spriteLoad(filename, SizeX,SizeY ); 
+	Sprite_S* temp_spr = spriteLoad(filename, SizeX, SizeY ); 
 	map.Init_map_position.x = 0;
 	map.Init_map_position.y = 150;
 	map.Init_bg_position.x = 0;
 	map.Init_bg_position.y = 0;
-
+	map.Map_size.x = SizeX;
+	map.Map_size.y = SizeY;
 	
 	if (temp == NULL)
 	{

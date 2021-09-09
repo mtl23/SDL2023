@@ -16,9 +16,9 @@ Entity_S* entityList = NULL;
 int numEntity = 0;
 int entityMax = 500;
 
-extern int SCREEN_HEIGHT_OFFSET = 150;//revert to zero
-extern int SCREEN_WIDTH = 512;
-extern int SCREEN_HEIGHT = 512 + SCREEN_HEIGHT_OFFSET;
+extern int SCREEN_HEIGHT_OFFSET;//revert to zero
+extern int SCREEN_WIDTH;
+extern int SCREEN_HEIGHT;
 
 bool InitEntitySystem(int EntityMax)
 {

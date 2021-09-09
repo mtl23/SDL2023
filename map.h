@@ -25,6 +25,7 @@ typedef struct Map_S
 	Entity_S* MAP;
 	Background_M bg_sky;
 	Vector2D Init_map_position;
+	Vector2D Map_size;
 	Vector2D Init_bg_position;
 	void(*think) (struct Map_S* self); /**logic*<*/
 	void(*update) (struct Map_S* self); /**physics*<*/
