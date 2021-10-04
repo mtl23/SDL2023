@@ -17,7 +17,7 @@ Map_S mapNew(const char* filename, int SizeX, int SizeY, const char* bgfilename,
 	temp = EntityNew();
 	Sprite_S* temp_spr = spriteLoad(filename, SizeX, SizeY ); 
 	map.Init_map_position.x = 0;
-	map.Init_map_position.y = 150;
+	map.Init_map_position.y = 0;
 	map.Init_bg_position.x = 0;
 	map.Init_bg_position.y = 0;
 	map.Map_size.x = SizeX;
@@ -52,7 +52,7 @@ Map_S mapNew(const char* filename, int SizeX, int SizeY, const char* bgfilename,
 	map.MAP->is_car = 0;
 	map.MAP->is_AI = 0;
 	map.MAP->is_Obstacle = 0;
-	map.MAP->draw = &entityDraw;// this does no account for the background
+	map.MAP->draw = &entityDraw;// this does not account for the background
 	map.MAP->think = &mapThink;
 	return map;
 

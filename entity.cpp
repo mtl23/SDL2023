@@ -203,7 +203,7 @@ void carThink(Entity_S* self)
 {
 	
 
-	if (self->position.y == SCREEN_HEIGHT_OFFSET || self->position.y >= (SCREEN_HEIGHT - SCREEN_HEIGHT_OFFSET))//change direction
+	if (self->position.y == SCREEN_HEIGHT_OFFSET  || self->position.y >= (SCREEN_HEIGHT - SCREEN_HEIGHT_OFFSET) - self->sprite->imageH)//change direction
 	{
 		self->velocity = self->velocity * -1;
 	}

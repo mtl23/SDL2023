@@ -55,18 +55,18 @@ SDL_Texture* Title3;
 
   do  {
 
-
-  Logo.x = 150;
-  Logo.y = 150;
+  Logo.x = 5;// 150;
+  Logo.y = 55;
   Logo.w = 512;
   Logo.h = 128;
   	
     SDL_RenderCopy(gRenderer,Title,NULL,&Logo);
     Logo.w = 256;
     Logo.h = 128;
-	Logo.x += 512;  
+	Logo.x += 128;// 512;
+	Logo.y += 128;
 	SDL_RenderCopy(gRenderer,Title2,NULL,&Logo);
-	Logo.x -= 260;
+	Logo.x -= 26;// 260;
 	Logo.y += 128;
 	SDL_RenderCopy(gRenderer,Title3,NULL,&Logo);
 

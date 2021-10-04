@@ -29,6 +29,7 @@ REFACTOR WHENEVER POSSIBLE (player,background,map)
 
 
 //at this point you may begin and start to understand
+// matracie math
 // "mode 7 rendering" in off time work on the below if/when possible
 
 
