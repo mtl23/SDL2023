@@ -30,3 +30,9 @@ extern int SCREEN_HEIGHT = 512 + SCREEN_HEIGHT_OFFSET;
 	cam.Cam_rect.h= cam.Cam_size.y;
 	cam.player = player;
 }
+
+ void CameraDraw(Map_S map, Player_S player, Camera_S cam)
+ {
+ 
+ 
+ }

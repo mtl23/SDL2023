@@ -43,7 +43,7 @@ Background_M backgroundLoad(const char* filename, int SizeX, int SizeY,Vector2D 
 	strncpy_s(temp.sky->name, filename, 20);
 	temp.sky->position.x = destpostion.x;
 	temp.sky->position.y = destpostion.y;
-	//temp.sky->draw = &entityDraw;
+	//temp.sky->draw = &entityDraw; 
 	temp.sky->think = &bgThink;
 
 	return temp;

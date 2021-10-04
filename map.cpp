@@ -16,10 +16,10 @@ Map_S mapNew(const char* filename, int SizeX, int SizeY, const char* bgfilename,
 	Entity_S* temp;
 	temp = EntityNew();
 	Sprite_S* temp_spr = spriteLoad(filename, SizeX, SizeY ); 
-	map.Init_map_position.x = 0;
-	map.Init_map_position.y = 0;
-	map.Init_bg_position.x = 0;
-	map.Init_bg_position.y = 0;
+	map.Init_map_position.x = -400;
+	map.Init_map_position.y = -100;
+	//map.Init_bg_position.x = 0;
+	//map.Init_bg_position.y = 0;//adjust this when the bg is renabled
 	map.Map_size.x = SizeX;
 	map.Map_size.y = SizeY;
 	
@@ -41,7 +41,7 @@ Map_S mapNew(const char* filename, int SizeX, int SizeY, const char* bgfilename,
 	}
 	map.MAP->sprite = temp_spr;// the road
 
-	map.bg_sky = backgroundLoad(bgfilename, bgSizeX, bgSizeY, map.Init_bg_position); // the sky
+	//map.bg_sky = backgroundLoad(bgfilename, bgSizeX, bgSizeY, map.Init_bg_position); // the sky
 	strncpy_s(map.MAP->name, filename, 20);
 	map.MAP->position.x = map.Init_map_position.x;
 	map.MAP->position.y = map.Init_map_position.y;

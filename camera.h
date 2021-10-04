@@ -30,5 +30,7 @@ typedef struct Camera_S
 }Camera_S;
 
 
-void CameraInit( Map_S map,Player_S player,Camera_S cam);// need to create a player obj fot this to work
+void CameraInit( Map_S map,Player_S player,Camera_S cam);
+void CameraDraw(Map_S map, Player_S player, Camera_S cam);// need to create a player obj fot this to work
+
 #endif

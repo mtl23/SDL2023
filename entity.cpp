@@ -5,6 +5,7 @@
 #include "sprite.h"
 #include "SDL_image.h"
 #include "car.h"
+#include "camera.h"
 #include "entity.h"
 #include "vector.h"
 #include "simple_logger.h"
@@ -19,6 +20,7 @@ int entityMax = 500;
 extern int SCREEN_HEIGHT_OFFSET;//revert to zero
 extern int SCREEN_WIDTH;
 extern int SCREEN_HEIGHT;
+
 
 bool InitEntitySystem(int EntityMax)
 {
@@ -143,7 +145,11 @@ void entityDraw(Entity_S* entity, SDL_Renderer* renderer, int frame, Vector2D po
 		slog("no valid entity sprite");
 		return;
 	}
-	spriteDraw(entity->sprite, gRenderer, frame, position);
+	
+		spriteDraw(entity->sprite, gRenderer, frame, position);
+	
+
+
 }
 
 void entityThinkAll()
