@@ -29,9 +29,10 @@ extern int SCREEN_HEIGHT = 512 + SCREEN_HEIGHT_OFFSET;
 	cam.Cam_rect.w= cam.Cam_size.x;
 	cam.Cam_rect.h= cam.Cam_size.y;
 	cam.player = player;
+	cam.draw = Cameradraw;
 }
 
- void CameraDraw(Map_S map, Player_S player, Camera_S cam)
+ void Cameradraw ( Camera_S* self,  Map_S* map, SDL_Renderer* renderer, int frame, Vector2D destPosition) /**logic*<*/
  {
  
  

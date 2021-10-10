@@ -21,16 +21,11 @@ typedef struct Camera_S
 	Vector2D Cam_size;
 	SDL_Rect Cam_rect; //uses the above Vector 2Ds to create this
 	Vector2D Map_size;
+	void(*draw) ( struct Camera_S* self ,struct Map_S* map, SDL_Renderer* renderer, int frame, Vector2D destPosition); /**logic*<*/
 
-
-	/// /do i even need these??
-	void(*think) (struct Camera_S* self); /**logic*<*/
-	void(*update) (struct Camera_S* self); /**physics*<*/
-	void(*touch) (struct Camera_S* self, struct Entity_S* other); /**collions*<*/
 }Camera_S;
 
 
 void CameraInit( Map_S map,Player_S player,Camera_S cam);
-void CameraDraw(Map_S map, Player_S player, Camera_S cam);// need to create a player obj fot this to work
-
+void Cameradraw(Camera_S* self, Map_S* map, SDL_Renderer* renderer, int frame, Vector2D destPosition);
 #endif

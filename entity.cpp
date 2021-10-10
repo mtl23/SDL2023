@@ -146,7 +146,8 @@ void entityDraw(Entity_S* entity, SDL_Renderer* renderer, int frame, Vector2D po
 		return;
 	}
 	
-		spriteDraw(entity->sprite, gRenderer, frame, position);
+
+		spriteDraw(entity->sprite, gRenderer, frame, position);// currently this draws the map, but how do i conorporate the camera in this?
 	
 
 
@@ -204,7 +205,7 @@ void entityDrawAll()
 		entityList[i].draw(&entityList[i], gRenderer, entityList[i].sprite->frame, entityList[i].position);
 	}
 }
-//
+
 void carThink(Entity_S* self)
 {
 	

@@ -53,7 +53,7 @@ Map_S mapNew(const char* filename, int SizeX, int SizeY, const char* bgfilename,
 	map.MAP->is_AI = 0;
 	map.MAP->is_Obstacle = 0;
 	map.MAP->draw = &entityDraw;// this does not account for the background
-	map.MAP->think = &mapThink;
+	map.MAP->think = &mapThink; // entity draw draws the map, but this to should scroll the map
 	return map;
 
 }
@@ -67,11 +67,10 @@ void mapFree(Map_S* map)
 
 
 }
-
-void mapthink(Map_S* self)
+void mapthink(Map_S* map, Player_S player)
 {}
-void mapupdate(Map_S* self)
+void mapupdate(Map_S* map)
 {}
-void maptouch(Map_S* self, Entity_S* other)
+void maptouch(Map_S* map, Entity_S* other)
 {}
 

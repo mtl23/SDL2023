@@ -5,6 +5,7 @@
 #include <SDL_image.h>
 #include"sprite.h"
 #include"vector.h"
+#include"player.h"
 #include"entity.h"
 #include"background.h"
 
@@ -27,9 +28,9 @@ typedef struct Map_S
 	Vector2D Init_map_position;
 	Vector2D Map_size;
 	Vector2D Init_bg_position;
-	void(*think) (struct Map_S* self); /**logic*<*/
-	void(*update) (struct Map_S* self); /**physics*<*/
-	void(*touch) (struct Map_S* self, struct Entity_S* other); /**collsions*<*/
+	void(*think) (struct Map_S* map, struct Player_S player); /**logic*<*/
+	void(*update) (struct Map_S* map); /**physics*<*/
+	void(*touch) (struct Map_S* map, struct Entity_S* other); /**collsions*<*/
 }Map_S;
 
 /**
@@ -43,14 +44,10 @@ typedef struct Map_S
 */
 Map_S mapNew( const char* filename, int SizeX, int SizeY, const char* bgfilename,  int bgSizeX,int bgSizeY);// the size of the backgrounds should be made unified
 void mapFree(Map_S map);
-//void mapDraw(Map_S map); ///technically the ,mapo it entity #1 so consider not using this in later implementastions
-
-// map draw will likely need to be refactored, with more parameters for how to draw floor and sky
-
 
 // include entity think / touch/ draw / update / and such
 
-void mapthink( Map_S* self);
-void mapupdate( Map_S* self);
-void maptouch(Map_S* self, Entity_S* other);
+void mapthink( Map_S* map, Player_S player);
+void mapupdate( Map_S* map);
+void maptouch(Map_S* map, Entity_S* other);
 #endif
