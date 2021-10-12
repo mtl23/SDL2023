@@ -231,3 +231,13 @@ void mapThink(Entity_S* self)
 	//slog("Map Think");
 }
 
+
+float GetXOrigin(Entity_S* self)
+{
+	return self->position.x;
+}
+
+float GetYOrigin(Entity_S* self)
+{
+	return self->position.y;
+} 

@@ -3,11 +3,7 @@
 
 #include <SDL.h>
 #include <SDL_image.h>
-#include "sprite.h"
 #include "vector.h"
-#include "simple_logger.h"
-#include "background.h"
-#include "entity.h"
 #include "map.h"
 #include "player.h"
 

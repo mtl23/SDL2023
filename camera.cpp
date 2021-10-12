@@ -9,10 +9,10 @@
 #include "player.h"
 #include "camera.h"
 
-/// <summary>
+
 /// why does this extern not work without setting value again.
 /// see init and entity.cpps
-/// </summary>
+
 extern int SCREEN_HEIGHT_OFFSET = 0;//revert to zero
 extern int SCREEN_WIDTH = 512;
 extern int SCREEN_HEIGHT = 512 + SCREEN_HEIGHT_OFFSET;
