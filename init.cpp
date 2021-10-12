@@ -26,9 +26,6 @@ extern SDL_Surface* gScreenSurface;
 
 extern int entityMax;
 	
-///the camera a static singleton
- Camera_S cam1;
-
 //Screen dimension constants
 const int SCREEN_HEIGHT_OFFSET = 0;//revert to zero takes away from the bottom of the screen going up
 const int SCREEN_WIDTH = 512;
@@ -115,7 +112,7 @@ const int SCREEN_HEIGHT = 512 + SCREEN_HEIGHT_OFFSET;
 	 // Inital loading of main assets for the demo
 	 Map_S M0deS3v3n = mapNew("SRC/PNG/vchgss.png", 1188, 821, "SRC/PNG/bg2.png", 2048, 150); //  make the map larger than the camera
 	 Player_S Player1 = PlayerInit("SRC/PNG/car2.png", 128, 128);
-	 CameraInit(M0deS3v3n, Player1, cam1);
+	Camera_S cam = CameraInit(M0deS3v3n, Player1);
 
 	 //const Uint8* currentKeyStates = SDL_GetKeyboardState( NULL );
 

@@ -53,7 +53,6 @@ Map_S mapNew(const char* filename, int SizeX, int SizeY, const char* bgfilename,
 	map.MAP->is_AI = 0;
 	map.MAP->is_Obstacle = 0;
 	map.MAP->draw = &entityDraw;// this does not account for the background
-	map.MAP->think = &mapThink; // entity draw draws the map, but this to should scroll the map
 	return map;
 
 }
