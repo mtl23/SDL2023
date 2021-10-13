@@ -9,7 +9,7 @@
 #include "entity.h"
 #include "vector.h"
 #include "simple_logger.h"
-
+#include "camera.h""
 
 extern SDL_Renderer* gRenderer;
 
@@ -20,7 +20,7 @@ int entityMax = 500;
 extern int SCREEN_HEIGHT_OFFSET;//revert to zero
 extern int SCREEN_WIDTH;
 extern int SCREEN_HEIGHT;
-extern Camera_S cam; //hopefully this help as a workaround to adding camera.h
+ Camera_S cam = CameraInit(); //hopefully this help as a workaround to adding camera.h
 
 
 bool InitEntitySystem(int EntityMax)
@@ -203,6 +203,8 @@ void entityDrawAll()
 		{
 			continue;
 		}
+
+		slog("Camera posistion is %f, %f",cam.Init_cam_position.x,cam.Init_cam_position.y);
 		entityList[i].draw(&entityList[i], gRenderer, entityList[i].sprite->frame, entityList[i].position);
 	}
 }

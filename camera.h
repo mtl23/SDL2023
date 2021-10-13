@@ -14,7 +14,8 @@ typedef struct Camera_S
 	Background_M bg_sky;
 	Player_S player;
 	Vector2D Init_cam_position;
-	Vector2D Cam_size;
+	Vector2D position; // the posoition of the camera
+	Vector2D Cam_size; // the size of the camera
 	SDL_Rect Cam_rect; //uses the above Vector 2Ds to create this
 	Vector2D Map_size;
 	//void(*draw) ( struct Camera_S* self ,struct Map_S* map, SDL_Renderer* renderer, int frame, Vector2D destPosition); /**logic*<*/
@@ -22,6 +23,6 @@ typedef struct Camera_S
 }Camera_S;
 
 
-Camera_S CameraInit( Map_S map,Player_S player);
+Camera_S CameraInit();// (Map_S map, Player_S player);
 //void Cameradraw(Camera_S* self, Map_S* map, SDL_Renderer* renderer, int frame, Vector2D destPosition);
 #endif
