@@ -20,6 +20,7 @@ int entityMax = 500;
 extern int SCREEN_HEIGHT_OFFSET;//revert to zero
 extern int SCREEN_WIDTH;
 extern int SCREEN_HEIGHT;
+extern Camera_S cam; //hopefully this help as a workaround to adding camera.h
 
 
 bool InitEntitySystem(int EntityMax)
