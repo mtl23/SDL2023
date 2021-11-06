@@ -152,11 +152,20 @@ void entityDraw(Entity_S* entity, SDL_Renderer* renderer, int frame, Vector2D po
 	
 
 	    //check if we are drawing the car
-	     if(entity->is_car)
+	     
+	if (entity->is_Map)
+	{
+		//adjust the camera  position here, by tis time cam position has taken over for the drawing over init_map position
+	    //slog("Map posistion is %f, %f", M0deS3v3n.Init_map_position.x, M0deS3v3n.Init_map_position.y);
+		//slog("Camera posistion is %f, %f", cam.Init_cam_position.x, cam.Init_cam_position.y);
+
+	}
+	
+	if(entity->is_car)
 		 {
 			 //adjust the camera  position here, by tis time cam position has taken over for the drawing over init_map position
 			// slog("Map posistion is %f, %f", M0deS3v3n.Init_map_position.x, M0deS3v3n.Init_map_position.y);
-			 slog("Camera posistion is %f, %f", cam.Init_cam_position.x, cam.Init_cam_position.y);
+			// slog("Camera posistion is %f, %f", cam.Init_cam_position.x, cam.Init_cam_position.y);
 
 		 }
 		spriteDraw(entity->sprite, gRenderer, frame, position);// currently this draws the map, but how do i conorporate the camera in this?
@@ -232,6 +241,10 @@ void carThink(Entity_S* self)
 
 
 	self->position.y = self->position.y+ self->velocity;
+	//update the camera position to center the car as it moves we no longer want init positions
+
+	cam.position.y = cam.position.y+ self->velocity;
+	 slog("Camera posistion is %f, %f", cam.position.x, cam.position.y);
 
 }
 
