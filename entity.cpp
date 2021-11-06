@@ -158,11 +158,9 @@ void entityDraw(Entity_S* entity, SDL_Renderer* renderer, int frame, Vector2D po
 		//adjust the camera  position here, by tis time cam position has taken over for the drawing over init_map position
 	    //slog("Map posistion is %f, %f", M0deS3v3n.Init_map_position.x, M0deS3v3n.Init_map_position.y);
 		//slog("Camera posistion is %f, %f", cam.Init_cam_position.x, cam.Init_cam_position.y);
-		M0deS3v3n.Init_map_position.x = cam.position.x;
-		M0deS3v3n.Init_map_position.y = cam.position.y;
-		M0deS3v3n.MAP->position.x = cam.position.x;
-		M0deS3v3n.MAP->position.y = cam.position.y;
-	}
+		//M0deS3v3n.Init_map_position.x = cam.position.x;
+		//M0deS3v3n.Init_map_position.y = cam.position.y;
+			}
 	
 	if(entity->is_car)
 		 {
@@ -229,7 +227,7 @@ void entityDrawAll()
 
 		if (entityList[i].is_Map)
 		{
-			slog("We need to get the map position,not map init position for drawing");
+		//	slog("We need to get the map position,not map init position for drawing");
 		}
 
 		entityList[i].draw(&entityList[i], gRenderer, entityList[i].sprite->frame, entityList[i].position);
@@ -250,7 +248,13 @@ void carThink(Entity_S* self)
 	//update the camera position to center the car as it moves we no longer want init positions
 
 	cam.position.y = cam.position.y+ self->velocity;
-	 slog("Camera posistion is %f, %f", cam.position.x, cam.position.y);// OK now move the camera accordingly as this changes
+	// slog("Camera posistion is %f, %f", cam.position.x, cam.position.y);// OK now move the camera accordingly as this changes
+
+
+	//11/6 moves the entire screen not just the 'camera' as the car moves. Ideally rhe car should always be n the cnter as it travels
+
+	//M0deS3v3n.MAP->position.x = cam.position.x;
+	//M0deS3v3n.MAP->position.y = (cam.position.y + 128 / 2) - SCREEN_HEIGHT / 2;///128x128 is the car sprite size
 
 }
 
