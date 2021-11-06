@@ -19,13 +19,16 @@ Map_S mapNew(const char* filename, int SizeX, int SizeY, const char* bgfilename,
 	Sprite_S* temp_spr = spriteLoad(filename, SizeX, SizeY ); 
 	map.Init_map_position.x = -450; // to position of the map, not the position of the camera. Make these ubiform //camera rect must be the same size as map rect??
 	map.Init_map_position.y = -150; // There fore, change map position var as the car moves, and update cam position accordingly. (0,0) is the top left corner
+	map.position.x = map.Init_map_position.x;
+	map.position.y = map.Init_map_position.y;
 	cam.Init_cam_position.x = map.Init_map_position.x;
 	cam.Init_cam_position.y = map.Init_map_position.y;
-	cam.position.x = map.Init_map_position.x;
-	cam.position.y = map.Init_map_position.y;
+	cam.position.x = map.position.x;
+	cam.position.y = map.position.y;
 
-	
-	//map.Init_bg_position.x = 0;
+	//map.bg_position.x = 0;//adjust this when the bg is renabled
+	//map.bg_position.y = 0;//adjust this when the bg is renabled
+	//map.Init_bg_position.x = 0;//adjust this when the bg is renabled
 	//map.Init_bg_position.y = 0;//adjust this when the bg is renabled
 	map.Map_size.x = SizeX;
 	map.Map_size.y = SizeY;

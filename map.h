@@ -26,8 +26,10 @@ typedef struct Map_S
 	Entity_S* MAP;
 	Background_M bg_sky;
 	Vector2D Init_map_position;
+	Vector2D position;
 	Vector2D Map_size;
 	Vector2D Init_bg_position;
+	Vector2D bg_position;
 	void(*think) (struct Map_S* map, struct Player_S player); /**logic*<*/
 	void(*update) (struct Map_S* map); /**physics*<*/
 	void(*touch) (struct Map_S* map, struct Entity_S* other); /**collsions*<*/
