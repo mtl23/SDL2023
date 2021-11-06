@@ -20,7 +20,10 @@ int entityMax = 500;
 extern int SCREEN_HEIGHT_OFFSET;//revert to zero
 extern int SCREEN_WIDTH;
 extern int SCREEN_HEIGHT;
- Camera_S cam = CameraInit(); //hopefully this help as a workaround to adding camera.h
+
+extern Map_S M0deS3v3n;;
+
+Camera_S cam = CameraInit(); //hopefully this help as a workaround to adding camera.h
 
 
 bool InitEntitySystem(int EntityMax)
@@ -148,6 +151,14 @@ void entityDraw(Entity_S* entity, SDL_Renderer* renderer, int frame, Vector2D po
 	}
 	
 
+	    //check if we are drawing the car
+	     if(entity->is_car)
+		 {
+			 //adjust the camera  position here, by tis time cam position has taken over for the drawing over init_map position
+			// slog("Map posistion is %f, %f", M0deS3v3n.Init_map_position.x, M0deS3v3n.Init_map_position.y);
+			 slog("Camera posistion is %f, %f", cam.Init_cam_position.x, cam.Init_cam_position.y);
+
+		 }
 		spriteDraw(entity->sprite, gRenderer, frame, position);// currently this draws the map, but how do i conorporate the camera in this?
 	
 
@@ -204,7 +215,8 @@ void entityDrawAll()
 			continue;
 		}
 
-		slog("Camera posistion is %f, %f",cam.Init_cam_position.x,cam.Init_cam_position.y);
+
+
 		entityList[i].draw(&entityList[i], gRenderer, entityList[i].sprite->frame, entityList[i].position);
 	}
 }
