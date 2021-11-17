@@ -23,6 +23,6 @@ typedef struct Camera_S
 }Camera_S;
 
 
-Camera_S CameraInit();// (Map_S map, Player_S player);
+Camera_S CameraInit(Map_S map, Player_S player);
 //void Cameradraw(Camera_S* self, Map_S* map, SDL_Renderer* renderer, int frame, Vector2D destPosition);
 #endif

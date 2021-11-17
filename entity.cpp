@@ -9,7 +9,7 @@
 #include "entity.h"
 #include "vector.h"
 #include "simple_logger.h"
-#include "camera.h""
+#include "camera.h"
 
 extern SDL_Renderer* gRenderer;
 
@@ -21,9 +21,9 @@ extern int SCREEN_HEIGHT_OFFSET;//revert to zero
 extern int SCREEN_WIDTH;
 extern int SCREEN_HEIGHT;
 
-extern Map_S M0deS3v3n;;
+extern Map_S M0deS3v3n;
 
-Camera_S cam = CameraInit(); //hopefully this help as a workaround to adding camera.h
+extern Camera_S MainCam; //hopefully this help as a workaround to adding camera.h
 
 
 bool InitEntitySystem(int EntityMax)
@@ -247,14 +247,14 @@ void carThink(Entity_S* self)
 	self->position.y = self->position.y+ self->velocity;
 	//update the camera position to center the car as it moves we no longer want init positions
 
-	cam.position.y = cam.position.y+ self->velocity;
+	MainCam.position.y = MainCam.position.y+ self->velocity;
 	// slog("Camera posistion is %f, %f", cam.position.x, cam.position.y);// OK now move the camera accordingly as this changes
 
 
 	//11/6 moves the entire screen not just the 'camera' as the car moves. Ideally rhe car should always be n the cnter as it travels
 
 	//M0deS3v3n.MAP->position.x = cam.position.x;
-	//M0deS3v3n.MAP->position.y = (cam.position.y + 128 / 2) - SCREEN_HEIGHT / 2;///128x128 is the car sprite size
+	M0deS3v3n.MAP->position.y = (MainCam.position.y + 128 / 2) - SCREEN_HEIGHT / 2;///128x128 is the car sprite size
 
 }
 

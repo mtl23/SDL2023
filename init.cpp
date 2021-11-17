@@ -32,7 +32,7 @@ const int SCREEN_WIDTH = 512;
 const int SCREEN_HEIGHT = 512 + SCREEN_HEIGHT_OFFSET;
 
 Map_S M0deS3v3n;
-
+Camera_S MainCam;
  bool init()
 {
 
@@ -113,7 +113,7 @@ Map_S M0deS3v3n;
 	 // Inital loading of main assets for the demo
 	  M0deS3v3n = mapNew("SRC/PNG/vchgss.png", 1188, 821, "SRC/PNG/bg2.png", 2048, 150); //  make the map larger than the camera
 	 Player_S Player1 = PlayerInit("SRC/PNG/car2.png", 128, 128);
-	/// Camera_S cam = CameraInit();//(M0deS3v3n, Player1);
+	  MainCam = CameraInit(M0deS3v3n, Player1);
 
 	 //const Uint8* currentKeyStates = SDL_GetKeyboardState( NULL );
 

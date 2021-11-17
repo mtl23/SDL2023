@@ -7,7 +7,7 @@
 #include"entity.h"
 
 extern SDL_Renderer* gRenderer;
-extern Camera_S cam;
+extern Camera_S MainCam;
 
 Map_S mapNew(const char* filename, int SizeX, int SizeY, const char* bgfilename, int bgSizeX, int bgSizeY)
  {
@@ -21,11 +21,7 @@ Map_S mapNew(const char* filename, int SizeX, int SizeY, const char* bgfilename,
 	map.Init_map_position.y = -150; // There fore, change map position var as the car moves, and update cam position accordingly. (0,0) is the top left corner
 	map.position.x = map.Init_map_position.x;
 	map.position.y = map.Init_map_position.y;
-	cam.Init_cam_position.x = map.Init_map_position.x;
-	cam.Init_cam_position.y = map.Init_map_position.y;
-	cam.position.x = map.position.x;
-	cam.position.y = map.position.y;
-
+	
 	//map.bg_position.x = 0;//adjust this when the bg is renabled
 	//map.bg_position.y = 0;//adjust this when the bg is renabled
 	//map.Init_bg_position.x = 0;//adjust this when the bg is renabled
@@ -41,7 +37,6 @@ Map_S mapNew(const char* filename, int SizeX, int SizeY, const char* bgfilename,
 
 	}
 	map.MAP = temp;
-
 	
 	if (&temp_spr == NULL)
 	{
