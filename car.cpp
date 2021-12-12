@@ -9,6 +9,7 @@ Car_S CarNew(const char* filename, int SizeX, int SizeY)
 	Car_S temp_car;
 	Entity_S* temp;
 	temp = EntityNew();
+	slog("created car entity");
 	Sprite_S* temp_spr = spriteLoad(filename, SizeX, SizeY);
 	temp_car.Init_car_position.x = 192;//(screenwidth/2)-(car->sprite.width/2)
 	temp_car.Init_car_position.y = 380;//fixed number, for the most part

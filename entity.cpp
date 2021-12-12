@@ -73,7 +73,8 @@ Entity_S* EntityNew()
 		}
 		memset(&entityList[i], 0, sizeof(Entity_S));
 		entityList[i].inuse = 1;
-		slog("NEW ENTITY");
+		slog("NEW ENTITY at index: %i", i);
+
 		if (!&entityList[i])
 		{
 			slog("ENTITY ALLOCATION FAILED");
@@ -224,37 +225,47 @@ void entityDrawAll()
 		{
 			continue;
 		}
-
-		if (entityList[i].is_Map)
+		//12/12 the 0 entity should be the map and 1 the car so they are drawn in that order. fix this
+		if (entityList[i].is_Map == 1) // draw the map relative to what the camera can see
 		{
-		//	slog("We need to get the map position,not map init position for drawing");
-		}
+			entityList[i].draw(&entityList[i], gRenderer, entityList[i].sprite->frame, MainCam.position);
 
-		entityList[i].draw(&entityList[i], gRenderer, entityList[i].sprite->frame, entityList[i].position);
+		}
+		else if(entityList[i].is_car == 1) {
+
+			// TO DO only draw these entities if the are in range of the camera.
+			entityList[i].draw(&entityList[i], gRenderer, entityList[i].sprite->frame, entityList[i].position);
+			}
 	}
 }
 
-void carThink(Entity_S* self)
+void carThink(Entity_S* self)// moves the cars position on the map, and consquencially the map is drawn on a new location on the screen.
 {
 	
 
 	if (self->position.y == SCREEN_HEIGHT_OFFSET  || self->position.y >= (SCREEN_HEIGHT - SCREEN_HEIGHT_OFFSET) - self->sprite->imageH)//change direction
 	{
 		self->velocity = self->velocity * -1;
+
 	}
+	MainCam.position.y = MainCam.position.y + self->velocity;
+	
+
+	//12/12 keep the car at te bottom of the screen, and move the map insted of the car!
 
 
-	self->position.y = self->position.y+ self->velocity;
+	self->position.x = 182;
+	self->position.y = 380;
 	//update the camera position to center the car as it moves we no longer want init positions
 
-	MainCam.position.y = MainCam.position.y+ self->velocity;
+	
 	// slog("Camera posistion is %f, %f", cam.position.x, cam.position.y);// OK now move the camera accordingly as this changes
 
 
 	//11/6 moves the entire screen not just the 'camera' as the car moves. Ideally rhe car should always be n the cnter as it travels
 
 	//M0deS3v3n.MAP->position.x = cam.position.x;
-	M0deS3v3n.MAP->position.y = (MainCam.position.y + 128 / 2) - SCREEN_HEIGHT / 2;///128x128 is the car sprite size
+	//M0deS3v3n.MAP->position.y = (MainCam.position.y + 128 / 2) - SCREEN_HEIGHT / 2;///128x128 is the car sprite size
 
 }
 
