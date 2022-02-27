@@ -242,20 +242,38 @@ void entityDrawAll()
 void carThink(Entity_S* self)// moves the cars position on the map, and consquencially the map is drawn on a new location on the screen.
 {
 	
+	//1/7/2022 NEED TO KEEP THE CAMERA FROM SCROLLING OFF THE MAP
+	// - pushes car down but not back up
 
-	if (self->position.y == SCREEN_HEIGHT_OFFSET  || self->position.y >= (SCREEN_HEIGHT - SCREEN_HEIGHT_OFFSET) - self->sprite->imageH)//change direction
+	if (MainCam.position.y >= SCREEN_HEIGHT_OFFSET || MainCam.position.y <= (((SCREEN_HEIGHT - SCREEN_HEIGHT_OFFSET) - self->sprite->imageH)*-1))//change direction
 	{
+		
+		//if (MainCam.position.y == SCREEN_HEIGHT_OFFSET  )//less than 384
+		//{
+		//
+		//	slog("GOT HERE! GO DOWN");
+		//	slog("Cars y pos %f", MainCam.position.y);
+
+		//}
+
+		if (MainCam.position.y <= -384)//((SCREEN_HEIGHT - SCREEN_HEIGHT_OFFSET) - self->sprite->imageH)*-1)
+		{
+		
+			slog("GOT HERE! GO BACK UP");
+		}
 		self->velocity = self->velocity * -1;
 
 	}
 	MainCam.position.y = MainCam.position.y + self->velocity;
-	
+	slog("Cars lower bound is %i, whe position is this, go back up ", ((SCREEN_HEIGHT - SCREEN_HEIGHT_OFFSET) - self->sprite->imageH) * -1);
+	slog("Cars y pos %f", MainCam.position.y);
+
 
 	//12/12 keep the car at te bottom of the screen, and move the map insted of the car!
 
 
-	self->position.x = 182;
-	self->position.y = 380;
+	//self->position.x = 182;
+	//self->position.y = 380;
 	//update the camera position to center the car as it moves we no longer want init positions
 
 	

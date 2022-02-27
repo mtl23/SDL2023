@@ -67,7 +67,7 @@ Camera_S MainCam;
 
 			//// Create an json interger, a json test.
 			json_int_t x = 123123123;
-			printf("x is % " JSON_INTEGER_FORMAT "\n", x);
+			//printf("x is % " JSON_INTEGER_FORMAT "\n", x);
 			// Initialize fonts
 			if (TTF_Init() == -1)
 			{

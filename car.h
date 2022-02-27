@@ -10,7 +10,7 @@
 typedef struct Car_S
 {
 	Entity_S* CAR;
-	Vector2D Init_car_position;
+	Vector2D Init_car_screen_position;
 	void(*think) (struct Car_S* car_self); /**logic*<*/
 	void(*update) (struct Car_S* car_self); /**physics*<*/
 	void(*touch) (struct Car_S* car_self, struct Entity_S* other); /**collsions*<*/

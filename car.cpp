@@ -11,8 +11,9 @@ Car_S CarNew(const char* filename, int SizeX, int SizeY)
 	temp = EntityNew();
 	slog("created car entity");
 	Sprite_S* temp_spr = spriteLoad(filename, SizeX, SizeY);
-	temp_car.Init_car_position.x = 192;//(screenwidth/2)-(car->sprite.width/2)
-	temp_car.Init_car_position.y = 380;//fixed number, for the most part
+	//position on the screen, not the map
+	temp_car.Init_car_screen_position.x = 182;//(screenwidth/2)-(car->sprite.width/2)
+	temp_car.Init_car_screen_position.y = 380;//fixed number, for the most part
 	
 	
 if (temp == NULL)
@@ -31,8 +32,8 @@ if (temp == NULL)
 		//return NULL;
 
 	}
-	temp_car.CAR->position.x = temp_car.Init_car_position.x;
-	temp_car.CAR->position.y = temp_car.Init_car_position.y;
+	temp_car.CAR->position.x = temp_car.Init_car_screen_position.x;
+	temp_car.CAR->position.y = temp_car.Init_car_screen_position.y;
 	temp_car.CAR->sprite = temp_spr;// the car
 	temp_car.CAR->velocity = 1;	
 	strncpy_s(temp_car.CAR->name, filename, 20);
