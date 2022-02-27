@@ -242,12 +242,22 @@ void entityDrawAll()
 void carThink(Entity_S* self)// moves the cars position on the map, and consquencially the map is drawn on a new location on the screen.
 {
 	
-	//1/7/2022 NEED TO KEEP THE CAMERA FROM SCROLLING OFF THE MAP
-	// - pushes car down but not back up
+	
+	// 2/27   Scroll x position left and right
 
-	if (MainCam.position.y >= SCREEN_HEIGHT_OFFSET || MainCam.position.y <= (((SCREEN_HEIGHT - SCREEN_HEIGHT_OFFSET) - self->sprite->imageH)*-1))//change direction
+
+	if (MainCam.position.y >= SCREEN_HEIGHT_OFFSET || MainCam.position.y <= (((SCREEN_HEIGHT - SCREEN_HEIGHT_OFFSET) - (self->sprite->imageH + (self->sprite->imageH/1.995) ))*-1))//change direction
 	{
 		
+		/*
+		State 0 at the start going up
+		State 1 going down to the bottom 
+		State 2 goes to the center of the screen the to the far left
+		State 3 goes from the far left to the far right
+		State 4 goes back to the center of the screen and then up again, reset to zero 
+		*/
+
+
 		//if (MainCam.position.y == SCREEN_HEIGHT_OFFSET  )//less than 384
 		//{
 		//
@@ -256,34 +266,22 @@ void carThink(Entity_S* self)// moves the cars position on the map, and consquen
 
 		//}
 
-		if (MainCam.position.y <= -384)//((SCREEN_HEIGHT - SCREEN_HEIGHT_OFFSET) - self->sprite->imageH)*-1)
-		{
-		
-			slog("GOT HERE! GO BACK UP");
-		}
+		//if (MainCam.position.y <= -384)//((SCREEN_HEIGHT - SCREEN_HEIGHT_OFFSET) - self->sprite->imageH)*-1)
+		//{
+		//
+		//	slog("GOT HERE! GO BACK UP");
+		//}
 		self->velocity = self->velocity * -1;
+
+		if (self->state>4)
+		{
+			self->state = 0;
+		}
 
 	}
 	MainCam.position.y = MainCam.position.y + self->velocity;
 	slog("Cars lower bound is %i, whe position is this, go back up ", ((SCREEN_HEIGHT - SCREEN_HEIGHT_OFFSET) - self->sprite->imageH) * -1);
 	slog("Cars y pos %f", MainCam.position.y);
-
-
-	//12/12 keep the car at te bottom of the screen, and move the map insted of the car!
-
-
-	//self->position.x = 182;
-	//self->position.y = 380;
-	//update the camera position to center the car as it moves we no longer want init positions
-
-	
-	// slog("Camera posistion is %f, %f", cam.position.x, cam.position.y);// OK now move the camera accordingly as this changes
-
-
-	//11/6 moves the entire screen not just the 'camera' as the car moves. Ideally rhe car should always be n the cnter as it travels
-
-	//M0deS3v3n.MAP->position.x = cam.position.x;
-	//M0deS3v3n.MAP->position.y = (MainCam.position.y + 128 / 2) - SCREEN_HEIGHT / 2;///128x128 is the car sprite size
 
 }
 

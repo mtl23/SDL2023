@@ -41,6 +41,7 @@ if (temp == NULL)
 	temp_car.CAR->is_UI = 0;
 	temp_car.CAR->is_Map = 0;
 	temp_car.CAR->is_car = 1;
+	temp_car.CAR->state = 0;
 	temp_car.CAR->is_AI = 0;
 	temp_car.CAR->is_Obstacle = 0;
 	temp_car.CAR->draw = &entityDraw;
