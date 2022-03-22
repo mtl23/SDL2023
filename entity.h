@@ -29,6 +29,7 @@ typedef struct Entity_S
 	int is_AI;
 	int is_Obstacle;
 	int inuse;
+	int state;
 	char name[32];
 	float velocity; 
 	float accel;
