@@ -245,43 +245,76 @@ void carThink(Entity_S* self)// moves the cars position on the map, and consquen
 	
 	// 2/27   Scroll x position left and right
 
-
-	if (MainCam.position.y >= SCREEN_HEIGHT_OFFSET || MainCam.position.y <= (((SCREEN_HEIGHT - SCREEN_HEIGHT_OFFSET) - (self->sprite->imageH + (self->sprite->imageH/1.995) ))*-1))//change direction
+	          /*         car has hit the top              ||                car has hit the bottom                              */
+	if (MainCam.position.y >= float(SCREEN_HEIGHT_OFFSET) || MainCam.position.y <= (((SCREEN_HEIGHT - SCREEN_HEIGHT_OFFSET) - (self->sprite->imageH + (self->sprite->imageH/1.995) ))*-1))//change direction
 	{
 		
-		/*
-		State 0 at the start going up
-		State 1 going down to the bottom 
-		State 2 goes to the center of the screen the to the far left
-		State 3 goes from the far left to the far right
-		State 4 goes back to the center of the screen and then up again, reset to zero 
-		*/
-
-
-		//if (MainCam.position.y == SCREEN_HEIGHT_OFFSET  )//less than 384
-		//{
-		//
-		//	slog("GOT HERE! GO DOWN");
-		//	slog("Cars y pos %f", MainCam.position.y);
-
-		//}
-
-		//if (MainCam.position.y <= -384)//((SCREEN_HEIGHT - SCREEN_HEIGHT_OFFSET) - self->sprite->imageH)*-1)
-		//{
-		//
-		//	slog("GOT HERE! GO BACK UP");
-		//}
-		self->velocity = self->velocity * -1;
-
-		if (self->state>4)
+	
+		
+		self->state++;
+		if (self->state > 4)
 		{
 			self->state = 0;
 		}
+		switch(self->state)
+		{
+				case(0): //State 0 at the start going up
+					{
+					//slog("Car's y pos %f", MainCam.position.y);
+					self->velocity.y = self->velocity.y * -1;
+					break;
 
+				    }
+
+				case(1)://State 1 going down to the bottom 
+
+				{
+					self->velocity.y = self->velocity.y * -1;
+					break;
+
+				};
+
+				case(2): //State 2 goes to the center of the screen, then to the far left
+				{
+
+					self->velocity.y = self->velocity.y * -1;// go back up 
+					// TO DO once centered scroll to thr right
+					break;
+
+				};
+
+		
+				case(3): // State 3 goes from the far left to the far right
+				{
+
+					self->velocity.y = self->velocity.y * -1;
+					break;
+
+				};
+				
+				case(4): //State 4 goes back to the center of the screen and then up again, reset to zero
+				{
+
+					self->velocity.y = self->velocity.y * -1;
+					break;
+				};
+
+		
+				default:
+				{
+					//self->velocity = self->velocity * -1;
+					break;
+				};
+
+		}
+
+	   
+		
+		slog(" state: %i -- Cars y pos %f", self->state, MainCam.position.y);
 	}
-	MainCam.position.y = MainCam.position.y + self->velocity;
-	slog("Cars lower bound is %i, whe position is this, go back up ", ((SCREEN_HEIGHT - SCREEN_HEIGHT_OFFSET) - self->sprite->imageH) * -1);
-	slog("Cars y pos %f", MainCam.position.y);
+	MainCam.position.y = MainCam.position.y + self->velocity.y; // movbes the map based on the cars velocity Ypos
+	//slog("Cars lower bound is %i, whe position is this, go back up ", ((SCREEN_HEIGHT - SCREEN_HEIGHT_OFFSET) - self->sprite->imageH) * -1);
+	
 
 }
 

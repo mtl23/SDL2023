@@ -34,8 +34,10 @@ Background_M backgroundLoad(const char* filename, int SizeX, int SizeY,Vector2D 
 	strncpy_s(temp.bg_name, filename, 20);
 
 	temp.sky->is_UI = 0;
-	temp.sky->velocity = 0;
-	temp.sky->accel = 0;
+	temp.sky->velocity.x = 0;
+	temp.sky->velocity.y = 0;
+	temp.sky->accel.x = 0;
+	temp.sky->accel.y = 0;
 	temp.sky->is_Map = 1;
 	temp.sky->is_car = 0;
 	temp.sky->is_AI = 0;

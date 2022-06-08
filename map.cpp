@@ -52,8 +52,10 @@ Map_S mapNew(const char* filename, int SizeX, int SizeY, const char* bgfilename,
 	map.MAP->position.x = map.Init_map_position.x; //change thi s as the car moves too
 	map.MAP->position.y = map.Init_map_position.y; // change this as the car moves too
 	map.MAP->is_UI= 0;
-	map.MAP->velocity= 0;
-	map.MAP->accel= 0;
+	map.MAP->velocity.x= 0;
+	map.MAP->velocity.y= 0;
+	map.MAP->accel.x= 0;
+	map.MAP->accel.y= 0;
 	map.MAP->is_Map= 1;
 	map.MAP->is_car = 0;
 	map.MAP->is_AI = 0;

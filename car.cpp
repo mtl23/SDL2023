@@ -35,9 +35,11 @@ if (temp == NULL)
 	temp_car.CAR->position.x = temp_car.Init_car_screen_position.x;
 	temp_car.CAR->position.y = temp_car.Init_car_screen_position.y;
 	temp_car.CAR->sprite = temp_spr;// the car
-	temp_car.CAR->velocity = 1;	
+	temp_car.CAR->velocity.x = 0;	
+	temp_car.CAR->velocity.y = 1;	
 	strncpy_s(temp_car.CAR->name, filename, 20);
-	temp_car.CAR->accel = 0;	
+	temp_car.CAR->accel.x = 0;	
+	temp_car.CAR->accel.y = 0;	
 	temp_car.CAR->is_UI = 0;
 	temp_car.CAR->is_Map = 0;
 	temp_car.CAR->is_car = 1;

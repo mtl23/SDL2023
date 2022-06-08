@@ -31,8 +31,8 @@ typedef struct Entity_S
 	int inuse;
 	int state;
 	char name[32];
-	float velocity; 
-	float accel;
+	Vector2D velocity;
+	Vector2D accel;
 	Sprite_S* sprite;
 	Vector2D position;
 	int next_think;/**time index for next_think*/
