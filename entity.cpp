@@ -242,16 +242,15 @@ void entityDrawAll()
 void carThink(Entity_S* self)// moves the cars position on the map, and consquencially the map is drawn on a new location on the screen.
 {
 	
-	
-	// 2/27   Scroll x position left and right
+	slog(" state: %i -- Cars y pos %f", self->state, MainCam.position.y);
+
 
 	          /*         car has hit the top              ||                car has hit the bottom                              */
-	if (MainCam.position.y >= float(SCREEN_HEIGHT_OFFSET) || MainCam.position.y <= (((SCREEN_HEIGHT - SCREEN_HEIGHT_OFFSET) - (self->sprite->imageH + (self->sprite->imageH/1.995) ))*-1))//change direction
-	{
-		
+	//if (MainCam.position.y >= float(SCREEN_HEIGHT_OFFSET) || MainCam.position.y <= (((SCREEN_HEIGHT - SCREEN_HEIGHT_OFFSET) - (self->sprite->imageH + (self->sprite->imageH/1.995) ))*-1))//change direction
+	//{
+	//	
 	
 		
-		self->state++;
 		if (self->state > 4)
 		{
 			self->state = 0;
@@ -261,7 +260,12 @@ void carThink(Entity_S* self)// moves the cars position on the map, and consquen
 				case(0): //State 0 at the start going up
 					{
 					//slog("Car's y pos %f", MainCam.position.y);
-					self->velocity.y = self->velocity.y * -1;
+					if (MainCam.position.y >= float(SCREEN_HEIGHT_OFFSET))
+					{
+
+						self->state++;
+						self->velocity.y = self->velocity.y * -1;
+					}
 					break;
 
 				    }
@@ -269,33 +273,64 @@ void carThink(Entity_S* self)// moves the cars position on the map, and consquen
 				case(1)://State 1 going down to the bottom 
 
 				{
-					self->velocity.y = self->velocity.y * -1;
+					if (MainCam.position.y <= (((SCREEN_HEIGHT - SCREEN_HEIGHT_OFFSET) - (self->sprite->imageH + (self->sprite->imageH / 1.995))) * -1))
+					{
+
+						self->state++;
+						self->velocity.y = self->velocity.y * -1;
+					}
 					break;
 
 				};
 
 				case(2): //State 2 goes to the center of the screen, then to the far left
 				{
+					//self->velocity.y = self->velocity.y * -1;// go back up 
+					if (MainCam.position.y >= -1 * (160))// TO DO once centered scroll to the right
+					{
 
-					self->velocity.y = self->velocity.y * -1;// go back up 
-					// TO DO once centered scroll to thr right
+						slog("here");
+						self->velocity.y = 0;
+						self->velocity.x = -1;
+					}
+
+
+					
+
+					if (MainCam.position.x >= -1 * (160000000)) // TO DO  reached the far right check how to swing them back to the left
+					{
+
+						self->velocity.x = self->velocity.x * -1;
+						self->state++;
+					}					
 					break;
 
 				};
 
 		
-				case(3): // State 3 goes from the far left to the far right
+				case(3): // State 3 goes from the far right to the far left
 				{
 
-					self->velocity.y = self->velocity.y * -1;
+					if (MainCam.position.x >= -1 * (160000000)) // TO DO reached the far left check how to swing them back toward the center
+					{
+
+						self->velocity.x = self->velocity.x * -1;
+						self->state++;
+					}
 					break;
 
 				};
 				
-				case(4): //State 4 goes back to the center of the screen and then up again, reset to zero
+				case(4): //State 4  reached at the center of the map again, go up again,  state to reset to zero
 				{
 
-					self->velocity.y = self->velocity.y * -1;
+					if (MainCam.position.y >= -1 * (16000000000))  // TO DO check how to swing them back toward the center
+					{
+						
+						self->velocity.y = 1;
+						self->velocity.x = 0;
+						self->state++;
+					}
 					break;
 				};
 
@@ -306,12 +341,13 @@ void carThink(Entity_S* self)// moves the cars position on the map, and consquen
 					break;
 				};
 
-		}
+		//} //end if 
 
 	   
 		
 		slog(" state: %i -- Cars y pos %f", self->state, MainCam.position.y);
 	}
+	MainCam.position.x = MainCam.position.x + self->velocity.x; // movbes the map based on the cars velocity Ypos
 	MainCam.position.y = MainCam.position.y + self->velocity.y; // movbes the map based on the cars velocity Ypos
 	//slog("Cars lower bound is %i, whe position is this, go back up ", ((SCREEN_HEIGHT - SCREEN_HEIGHT_OFFSET) - self->sprite->imageH) * -1);
 	
