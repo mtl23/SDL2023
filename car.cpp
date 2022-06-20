@@ -12,8 +12,8 @@ Car_S CarNew(const char* filename, int SizeX, int SizeY)
 	slog("created car entity");
 	Sprite_S* temp_spr = spriteLoad(filename, SizeX, SizeY);
 	//position on the screen, not the map
-	temp_car.Init_car_screen_position.x = 182;//(screenwidth/2)-(car->sprite.width/2)
-	temp_car.Init_car_screen_position.y = 380;//fixed number, for the most part
+	temp_car.Init_car_screen_position.x = 182;//(screenwidth/2)-(car->sprite.width/2) the position on  the screen, not the map
+	temp_car.Init_car_screen_position.y = 380;//fixed number, for the most part the position on  the screen, not the map
 	
 	
 if (temp == NULL)

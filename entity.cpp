@@ -20,6 +20,8 @@ int entityMax = 500;
 extern int SCREEN_HEIGHT_OFFSET;//revert to zero
 extern int SCREEN_WIDTH;
 extern int SCREEN_HEIGHT;
+extern int MAPOFFSETX;
+extern int MAPOFFSETY;
 
 extern Map_S M0deS3v3n;
 
@@ -243,6 +245,7 @@ void carThink(Entity_S* self)// moves the cars position on the map, and consquen
 {
 	
 	slog(" state: %i -- Cars y pos %f", self->state, MainCam.position.y);
+	//slog(" state:  %f", ((-1 * MAPOFFSETY) + ((M0deS3v3n.Map_size.y / 2) * -1)));
 
 
 	          /*         car has hit the top              ||                car has hit the bottom                              */
@@ -250,7 +253,8 @@ void carThink(Entity_S* self)// moves the cars position on the map, and consquen
 	//{
 	//	
 	
-		
+	//slog("%f,%f",M0deS3v3n.Map_size.x, M0deS3v3n.Map_size.y);
+
 		if (self->state > 4)
 		{
 			self->state = 0;
@@ -286,10 +290,10 @@ void carThink(Entity_S* self)// moves the cars position on the map, and consquen
 				case(2): //State 2 goes to the center of the screen, then to the far left
 				{
 					//self->velocity.y = self->velocity.y * -1;// go back up 
-					if (MainCam.position.y >= -1 * (160))// TO DO once centered scroll to the right
+					if (MainCam.position.y >= ((-1*MAPOFFSETY) + ((M0deS3v3n.Map_size.y/2)*-1))) // TO DO once centered scroll to the right
 					{
 
-						slog("here");
+						
 						self->velocity.y = 0;
 						self->velocity.x = -1;
 					}
@@ -299,9 +303,9 @@ void carThink(Entity_S* self)// moves the cars position on the map, and consquen
 
 					if (MainCam.position.x >= -1 * (160000000)) // TO DO  reached the far right check how to swing them back to the left
 					{
-
-						self->velocity.x = self->velocity.x * -1;
-						self->state++;
+						slog("here");
+						//self->velocity.x = self->velocity.x * -1;
+						//self->state++;
 					}					
 					break;
 
@@ -314,8 +318,8 @@ void carThink(Entity_S* self)// moves the cars position on the map, and consquen
 					if (MainCam.position.x >= -1 * (160000000)) // TO DO reached the far left check how to swing them back toward the center
 					{
 
-						self->velocity.x = self->velocity.x * -1;
-						self->state++;
+						//self->velocity.x = self->velocity.x * -1;
+						//self->state++;
 					}
 					break;
 
@@ -327,9 +331,9 @@ void carThink(Entity_S* self)// moves the cars position on the map, and consquen
 					if (MainCam.position.y >= -1 * (16000000000))  // TO DO check how to swing them back toward the center
 					{
 						
-						self->velocity.y = 1;
-						self->velocity.x = 0;
-						self->state++;
+						//self->velocity.y = 1;
+						//self->velocity.x = 0;
+						//self->state++;
 					}
 					break;
 				};

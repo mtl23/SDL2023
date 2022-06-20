@@ -8,6 +8,8 @@
 
 extern SDL_Renderer* gRenderer;
 extern Camera_S MainCam;
+int MAPOFFSETX = -256;
+int MAPOFFSETY = -256;
 
 Map_S mapNew(const char* filename, int SizeX, int SizeY, const char* bgfilename, int bgSizeX, int bgSizeY)
  {
@@ -16,10 +18,10 @@ Map_S mapNew(const char* filename, int SizeX, int SizeY, const char* bgfilename,
 	Map_S map;  
 	Entity_S* temp;
 	temp = EntityNew();
-	slog("created map entity");
+	//slog("created map entity");
 	Sprite_S* temp_spr = spriteLoad(filename, SizeX, SizeY ); 
-	map.Init_map_position.x = -315; // to position of the map, not the position of the camera. Make these uniform //camera rect must be the same size as map rect??
-	map.Init_map_position.y = -160; // There fore, change map position var as the car moves, and update cam position accordingly. (0,0) is the top left corner
+	map.Init_map_position.x = MAPOFFSETX; // to position of the map, not the position of the camera. Make these uniform //camera rect must be the same size as map rect??
+	map.Init_map_position.y = MAPOFFSETY; // There fore, change map position var as the car moves, and update cam position accordingly. (0,0) is the top left corner
 	map.position.x = map.Init_map_position.x;
 	map.position.y = map.Init_map_position.y;
 	
