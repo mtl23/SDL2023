@@ -8,8 +8,8 @@
 
 extern SDL_Renderer* gRenderer;
 extern Camera_S MainCam;
-int MAPOFFSETX = -256;
-int MAPOFFSETY = -256;
+int MAPOFFSETX = -320;
+int MAPOFFSETY = -256; //refactor
 
 Map_S mapNew(const char* filename, int SizeX, int SizeY, const char* bgfilename, int bgSizeX, int bgSizeY)
  {

@@ -243,18 +243,11 @@ void entityDrawAll()
 
 void carThink(Entity_S* self)// moves the cars position on the map, and consquencially the map is drawn on a new location on the screen.
 {
-	
-	//slog(" state:  %f", ((-1 * MAPOFFSETY) + ((M0deS3v3n.Map_size.y / 2) * -1)));
 
+			// TO DO change logic to not relie of offsets, so i can use offset more freely for map placement in the future
+			// FIX right ot left ower bound
 
-	          /*         car has hit the top              ||                car has hit the bottom                              */
-	//if (MainCam.position.y >= float(SCREEN_HEIGHT_OFFSET) || MainCam.position.y <= (((SCREEN_HEIGHT - SCREEN_HEIGHT_OFFSET) - (self->sprite->imageH + (self->sprite->imageH/1.995) ))*-1))//change direction
-	//{
-	//	
-	
-	//slog("%f,%f",M0deS3v3n.Map_size.x, M0deS3v3n.Map_size.y);
-
-		if (self->state > 4)
+			if (self->state > 4)
 		{
 			self->state = 0;
 		}
@@ -262,7 +255,7 @@ void carThink(Entity_S* self)// moves the cars position on the map, and consquen
 		{
 				case(0): //State 0 at the start going up
 					{
-					slog(" state: %i -- Cars y pos %f", self->state, MainCam.position.y);
+					slog(" state: %i -- Cars pos %f,%f", self->state, MainCam.position.x,MainCam.position.y);
 
 					//slog("Car's y pos %f", MainCam.position.y);
 					if (MainCam.position.y >= float(SCREEN_HEIGHT_OFFSET))
@@ -300,23 +293,27 @@ void carThink(Entity_S* self)// moves the cars position on the map, and consquen
 
 						
 						self->velocity.y = 0;
-						self->velocity.x = -1;
+						self->velocity.x = -4;
 					}
-
-
-					
+									
 
 					if (MainCam.position.x <= (M0deS3v3n.Map_size.x+(MAPOFFSETX-(MainCam.Cam_size.x/2)))*-1) 
 					{
-						slog(" state: %i -- Cars x pos %f", self->state, MainCam.position.x);
 						self->velocity.x = self->velocity.x * -1;
 						self->state++;
 					}
 
-					else
+					if (self->velocity.x != 0)
 					{
-						slog(" state: %i -- Cars y pos %f", self->state, MainCam.position.y);					
+						slog(" state: %i -- Cars x pos %f", self->state, MainCam.position.x);
+					
 					}
+					if (self->velocity.y != 0)
+					{
+						slog(" state: %i -- Cars y pos %f", self->state, MainCam.position.y);
+
+					}
+
 					break;
 
 				};
@@ -328,17 +325,13 @@ void carThink(Entity_S* self)// moves the cars position on the map, and consquen
 
 					if (MainCam.position.x >= 0-((MainCam.Cam_size.x/2) + MAPOFFSETX ) ) // TO DO reached the far left check how to swing them back toward the center
 					{
-
-					
+						slog("here");
 						self->velocity.x = self->velocity.x * -1;
-						if (MainCam.position.x >= ((M0deS3v3n.Map_size.x + (MAPOFFSETX - (MainCam.Cam_size.x / 2))) * -1) / 2)  //MUST reach the center of the map again,
-						{
-							slog("here");
-							self->velocity.y = 1;
-							self->velocity.x = 0;
-							self->state++;
-						}
+						self->state++;
 					}
+				
+					
+
 					break;
 
 				};
@@ -347,16 +340,20 @@ void carThink(Entity_S* self)// moves the cars position on the map, and consquen
 				{
 					slog(" state: %i -- Cars x pos %f", self->state, MainCam.position.x);
 
-					
-					break;
-				};
+					if (MainCam.position.x <= ((M0deS3v3n.Map_size.x + (MAPOFFSETX - (MainCam.Cam_size.x / 2))) * -1) / 2)  //MUST send the car toward the center of the map again,
+					{
+						slog("here");
+						self->velocity.x = 0;
+						self->velocity.y = 4;
+						self->state++;
 
-		
-				default:
-				{
-					//self->velocity = self->velocity * -1;
+					}
+
+
 					break;
 				};
+		
+			
 
 		//} //end if 
 
