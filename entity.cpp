@@ -347,16 +347,8 @@ void carThink(Entity_S* self)// moves the cars position on the map, and consquen
 						self->state++;
 
 					}
-
-
 					break;
 				};
-		
-			
-
-		//} //end if 
-
-	   
 		
 		slog(" state: %i -- Cars y pos %f", self->state, MainCam.position.y);
 	}

@@ -10,6 +10,7 @@ extern SDL_Renderer* gRenderer;
 extern int lvl;
 Uint32 NOW;					/*the current time since program started*/
 
+//TODO working with one or more renderer
 
 void NextFrame()
 {
