@@ -227,10 +227,9 @@ void entityDrawAll()
 		{
 			continue;
 		}
-		//12/12 the 0 entity should be the map and 1 the car so they are drawn in that order. fix this
 		if (entityList[i].is_Map == 1) // draw the map relative to what the camera can see
 		{
-			entityList[i].draw(&entityList[i], gRenderer, entityList[i].sprite->frame, MainCam.position);
+			entityList[i].draw(&entityList[i], gRenderer, entityList[i].sprite->frame, MainCam.position);// draw the map relative to what the camera can see
 
 		}
 		else if(entityList[i].is_car == 1) {
@@ -244,8 +243,7 @@ void entityDrawAll()
 void carThink(Entity_S* self)// moves the cars position on the map, and consquencially the map is drawn on a new location on the screen.
 {
 
-			// TO DO change logic to not relie of offsets, so i can use offset more freely for map placement in the future
-			// FIX right ot left ower bound
+
 
 			if (self->state > 4)
 		{
@@ -350,18 +348,12 @@ void carThink(Entity_S* self)// moves the cars position on the map, and consquen
 
 
 					break;
-				};
-		
-			
-
-		//} //end if 
-
-	   
+				}; 
 		
 		slog(" state: %i -- Cars y pos %f", self->state, MainCam.position.y);
 	}
-	MainCam.position.x = MainCam.position.x + self->velocity.x; // movbes the map based on the cars velocity Ypos
-	MainCam.position.y = MainCam.position.y + self->velocity.y; // movbes the map based on the cars velocity Ypos
+	MainCam.position.x = MainCam.position.x + self->velocity.x; // moves the map based on the cars velocity Ypos
+	MainCam.position.y = MainCam.position.y + self->velocity.y; // moves the map based on the cars velocity Ypos
 	//slog("Cars lower bound is %i, whe position is this, go back up ", ((SCREEN_HEIGHT - SCREEN_HEIGHT_OFFSET) - self->sprite->imageH) * -1);
 	
 
