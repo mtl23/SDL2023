@@ -1,41 +1,10 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (DemoSDLGame001.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  backgound.cpp
-  camera.cpp
-C:\DemoSDLGame002_ChipmunkDemo\SRC\camera.cpp(26,19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\DemoSDLGame002_ChipmunkDemo\SRC\camera.cpp(27,19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\DemoSDLGame002_ChipmunkDemo\SRC\camera.cpp(32,39): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\DemoSDLGame002_ChipmunkDemo\SRC\camera.cpp(33,39): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\DemoSDLGame002_ChipmunkDemo\SRC\camera.cpp(34,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\DemoSDLGame002_ChipmunkDemo\SRC\camera.cpp(35,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  car.cpp
-  entity.cpp
-C:\DemoSDLGame002_ChipmunkDemo\SRC\entity.cpp(109,64): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\DemoSDLGame002_ChipmunkDemo\SRC\entity.cpp(109,52): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  init.cpp
   MainGame.cpp
 C:\DemoSDLGame002_ChipmunkDemo\SRC\MainGame.cpp(208,16): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\DemoSDLGame002_ChipmunkDemo\SRC\MainGame.cpp(209,16): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\DemoSDLGame002_ChipmunkDemo\SRC\MainGame.cpp(221,30): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\DemoSDLGame002_ChipmunkDemo\SRC\MainGame.cpp(285,58): warning C4244: 'argument': conversion from 'cpFloat' to 'float', possible loss of data
-C:\DemoSDLGame002_ChipmunkDemo\SRC\MainGame.cpp(286,62): warning C4244: 'argument': conversion from 'cpFloat' to 'float', possible loss of data
-C:\DemoSDLGame002_ChipmunkDemo\SRC\MainGame.cpp(302,30): warning C4244: '=': conversion from 'cpFloat' to 'int', possible loss of data
-C:\DemoSDLGame002_ChipmunkDemo\SRC\MainGame.cpp(303,22): warning C4244: '=': conversion from 'cpFloat' to 'int', possible loss of data
-  map.cpp
-C:\DemoSDLGame002_ChipmunkDemo\SRC\map.cpp(23,28): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\DemoSDLGame002_ChipmunkDemo\SRC\map.cpp(24,28): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\DemoSDLGame002_ChipmunkDemo\SRC\map.cpp(32,19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\DemoSDLGame002_ChipmunkDemo\SRC\map.cpp(33,19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  Math.cpp
-C:\DemoSDLGame002_ChipmunkDemo\SRC\Math.cpp(17,40): warning C4244: '=': conversion from 'cpFloat' to 'float', possible loss of data
-C:\DemoSDLGame002_ChipmunkDemo\SRC\Math.cpp(18,40): warning C4244: '=': conversion from 'cpFloat' to 'float', possible loss of data
-C:\DemoSDLGame002_ChipmunkDemo\SRC\Math.cpp(30,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\DemoSDLGame002_ChipmunkDemo\SRC\Math.cpp(42,32): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  player.cpp
-  sprite.cpp
-C:\DemoSDLGame002_ChipmunkDemo\SRC\sprite.cpp(148,19): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\DemoSDLGame002_ChipmunkDemo\SRC\sprite.cpp(149,19): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  title.cpp
-  vector.cpp
-  Generating Code...
-C:\DemoSDLGame002_ChipmunkDemo\SRC\entity.cpp(88): warning C4715: 'EntityNew': not all control paths return a value
+C:\DemoSDLGame002_ChipmunkDemo\SRC\MainGame.cpp(262,58): warning C4244: 'argument': conversion from 'cpFloat' to 'float', possible loss of data
+C:\DemoSDLGame002_ChipmunkDemo\SRC\MainGame.cpp(263,62): warning C4244: 'argument': conversion from 'cpFloat' to 'float', possible loss of data
+C:\DemoSDLGame002_ChipmunkDemo\SRC\MainGame.cpp(279,30): warning C4244: '=': conversion from 'cpFloat' to 'int', possible loss of data
+C:\DemoSDLGame002_ChipmunkDemo\SRC\MainGame.cpp(280,22): warning C4244: '=': conversion from 'cpFloat' to 'int', possible loss of data
   DemoSDLGame001.vcxproj -> C:\DemoSDLGame002_ChipmunkDemo\x64\Debug\DemoSDLGame002.exe
