@@ -1,0 +1,2 @@
+C:\DemoSDLGame001\x64\Debug\DemoSDLGame001.exe
+C:\DemoSDLGame002_ChipmunkDemo\x64\Debug\DemoSDLGame002.exe
